@@ -17,7 +17,7 @@ export class AppComponent {
     private userService: UserService
   ) {}
 
-  routeToLogin() {
-    this.userService.routeToLogin();
+  routeToProfile() {
+    this.userService.routeToProfile();
   }
 }

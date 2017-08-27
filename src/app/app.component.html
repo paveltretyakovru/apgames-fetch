@@ -2,13 +2,29 @@
 
   <!-- Toolbar  -->
   <div class="row">
-    <div class="col-xs">
+    <div class="col-xs-12">
       <md-toolbar color="primary">
-        <span>{{title}}</span>
+        
+        <div class="home-button">
+          <button md-icon-button (click)="routeToProfile()">
+          <md-icon>home</md-icon>
+        </button>
+        </div>
+
+        <!--Logo title application  -->
+        <div class="logo-title">
+          <span>{{title}}</span>
+        </div>
+
         <span class="toolbar-spacer"></span>
-        <button md-icon-button (click)="routeToLogin()">
+
+        <!-- Signin button -->
+        <div class="signin-button">
+          <button  md-icon-button (click)="routeToProfile()">
           <md-icon>assignment_ind</md-icon>
         </button>
+        </div>
+        
       </md-toolbar>
     </div>
   </div>

@@ -11,7 +11,7 @@ export class UserService {
     private router: Router
   ) {}
 
-  routeToLogin() {
-    this.router.navigate(['/user/login']);
+  routeToProfile() {
+    this.router.navigate(['/user/profile']);
   }
 }
