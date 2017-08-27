@@ -11,6 +11,7 @@ body { font-family: Roboto, sans-serif;}
 .signin-button { margin-right: 6px !important }
 .toolbar-spacer { flex: 1 1 auto }
 .mat-toolbar.mat-primary { padding: 0px }
+.toolbar-wrapper {padding-left: 0px !important; padding-right: 0px !important;}
 
 /* material tipography | Demo - https://codepen.io/lingtalfi/pen/VKbZxO */
 .display4 { font-weight: 300; font-size: 112px; letter-spacing: -4px }
