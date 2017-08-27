@@ -14,4 +14,8 @@ export class UserService {
   routeToProfile() {
     this.router.navigate(['/user/profile']);
   }
+
+  routeToHome() {
+    this.router.navigate(['/']);
+  }
 }

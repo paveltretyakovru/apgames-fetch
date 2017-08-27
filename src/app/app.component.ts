@@ -20,4 +20,8 @@ export class AppComponent {
   routeToProfile() {
     this.userService.routeToProfile();
   }
+
+  routeToHome() {
+    this.userService.routeToHome();
+  }
 }
