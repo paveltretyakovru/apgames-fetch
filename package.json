@@ -1,7 +1,7 @@
 {
-  "name": "angular-boilerplate",
+  "name": "apgames-fetch",
   "version": "0.0.0",
-  "description": "angular-boilerplate",
+  "description": "apgames-fetch",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ptretyakov/angular-boilerplate.git"
+    "url": "git+https://github.com/ptretyakov/apgames-fetch.git"
   },
   "author": "Pavel Tretyakov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ptretyakov/angular-boilerplate/issues"
+    "url": "https://github.com/ptretyakov/apgames-fetch/issues"
   },
-  "homepage": "https://github.com/ptretyakov/angular-boilerplate#readme",
+  "homepage": "https://github.com/ptretyakov/apgames-fetch#readme",
   "devDependencies": {
     "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^3.2.3",

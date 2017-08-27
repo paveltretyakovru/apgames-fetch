@@ -9,6 +9,6 @@ import { navRoutes } from './app-routing.module';
 })
 
 export class AppComponent {
-  title: string = 'Angular boilerplate';
+  title: string = 'ApGames Fetch';
   navRoutes: any[] = navRoutes;
 }
