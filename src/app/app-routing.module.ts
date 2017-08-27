@@ -24,4 +24,12 @@ export const navRoutes: any[] = [
   { path: 'tasks', label: 'Tasks Manager', isActive: false },
 ];
 
-export const AppRoutingModule = RouterModule.forRoot(appRoutes);
+@NgModule({
+  imports: [
+    RouterModule.forRoot(appRoutes),
+  ],
+  exports: [
+    RouterModule,
+  ],
+})
+export class AppRoutingModule {};
