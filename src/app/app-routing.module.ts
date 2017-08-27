@@ -13,6 +13,10 @@ const appRoutes: Routes = [
     path: 'tasks',
     children: TasksRouting,
   },
+  {
+    path: 'user',
+    loadChildren: './user/user.module#UserModule',
+  }
 ];
 
 export const navRoutes: any[] = [

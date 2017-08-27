@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ptretyakov/apgames-fetch#readme",
   "devDependencies": {
+    "angular-router-loader": "^0.6.0",
     "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^3.2.3",
     "css-loader": "^0.28.5",

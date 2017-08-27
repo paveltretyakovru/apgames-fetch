@@ -5,13 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // Material imports
-import {MdTabsModule} from '@angular/material';
-import {MdToolbarModule, MdIconModule} from '@angular/material';
+import { MdTabsModule, MdIconModule, MdButtonModule, MdToolbarModule} from '@angular/material';
 
 // Self imports
+import { UserModule } from './user/user.module';
+import { TasksModule } from './tasks/tasks.module';
 import { AppComponent } from './app.component';
 import { tasksReducer } from './tasks/tasks.reducer';
-import { TasksModule } from './tasks/tasks.module';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from "./app-routing.module";
 
@@ -23,6 +23,7 @@ import { AppRoutingModule } from "./app-routing.module";
     BrowserModule,
     
     // Self modules
+    UserModule,
     TasksModule,
     AppRoutingModule,
     StoreModule.forRoot({ tasks: tasksReducer }),
@@ -30,6 +31,7 @@ import { AppRoutingModule } from "./app-routing.module";
     // Material modules
     MdTabsModule,
     MdIconModule,
+    MdButtonModule,
     MdToolbarModule,
     BrowserAnimationsModule,
   ],
