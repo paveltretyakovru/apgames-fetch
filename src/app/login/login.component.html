@@ -1,0 +1,45 @@
+<div class="row center-md center-xs">
+  <div class="col-xs-12 col-sm-6">
+    <div id="user-login-wrapper">
+
+      <md-card>
+
+        <!--  Card Herader  -->
+        <md-card-header>
+          <md-card-title>
+            <span class="headline">Sign in</span>
+          </md-card-title>
+        </md-card-header>
+
+        <!--  Card Content  -->
+        <md-card-content>
+
+          <!--  Login  -->
+          <div class="form-group">
+            <md-input-container>
+              <input mdInput placeholder="Login" [(ngModel)]="authData.login" />
+            </md-input-container>
+          </div>
+
+          <!--  Password  -->
+          <div class="form-group">
+            <md-input-container>
+              <input
+                type="password"
+                [(ngModel)]="authData.password"
+                mdInput placeholder="Password"
+              />
+            </md-input-container>
+          </div>
+
+        </md-card-content>
+
+        <!--  Card Actions  -->
+        <md-card-actions>
+          <button md-button (click)="login()">Login</button>
+        </md-card-actions>
+      </md-card>
+
+    </div>
+  </div>
+</div>

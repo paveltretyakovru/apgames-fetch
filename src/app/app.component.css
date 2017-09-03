@@ -8,10 +8,10 @@ body { font-family: Roboto, sans-serif;}
 /*  Classes  */
 .logo-title { margin-left: 12px }
 .home-button { margin-left: 5px !important }
-.signin-button { margin-right: 6px !important }
 .toolbar-spacer { flex: 1 1 auto }
-.mat-toolbar.mat-primary { padding: 0px }
 .toolbar-wrapper {padding-left: 0px !important; padding-right: 0px !important;}
+.go-to-profile-button { margin-right: 6px !important }
+.mat-toolbar.mat-primary { padding: 0px }
 
 /* material tipography | Demo - https://codepen.io/lingtalfi/pen/VKbZxO */
 .display4 { font-weight: 300; font-size: 112px; letter-spacing: -4px }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { TasksRouting } from './tasks/tasks.routing';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   {
@@ -16,7 +17,11 @@ const appRoutes: Routes = [
   {
     path: 'user',
     loadChildren: './user/user.module#UserModule',
-  }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
 ];
 
 export const navRoutes: any[] = [
