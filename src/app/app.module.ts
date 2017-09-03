@@ -15,7 +15,6 @@ import {
 } from '@angular/material';
 
 // Self imports
-import reducers from './reducers';
 import { UserModule } from './user/user.module';
 import { TasksModule } from './tasks/tasks.module';
 import { AuthService } from './shared/auth.service';
@@ -25,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { AuthGuardService } from './shared/auth-guard.service';
+import { reducers, storeInitState, metaReducers } from './reducers';
 
 @NgModule({
   imports: [
@@ -39,7 +39,10 @@ import { AuthGuardService } from './shared/auth-guard.service';
     AppRoutingModule,
 
     // Store
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      initialState: storeInitState,
+    }),
     
     // Material modules
     MdCardModule,

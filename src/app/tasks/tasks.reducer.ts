@@ -3,7 +3,7 @@ import { Action } from '@ngrx/store';
 import { ADD_TASK } from './tasks.constants';
 import { Task } from './task/task.model';
 
-let initState: Task[] = [
+export const initState: Task[] = [
   {id: 1, title: 'First task'},
   {id: 2, title: 'Second task'},
 ];
