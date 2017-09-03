@@ -15,6 +15,7 @@ import {
 } from '@angular/material';
 
 // Self imports
+import reducers from './reducers';
 import { UserModule } from './user/user.module';
 import { TasksModule } from './tasks/tasks.module';
 import { AuthService } from './shared/auth.service';
@@ -36,7 +37,9 @@ import { AuthGuardService } from './shared/auth-guard.service';
     UserModule,
     TasksModule,
     AppRoutingModule,
-    StoreModule.forRoot({ tasks: tasksReducer }),
+
+    // Store
+    StoreModule.forRoot(reducers),
     
     // Material modules
     MdCardModule,

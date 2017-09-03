@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { Task } from './task/task.model';
-import { AppStore } from '../app-store.model';
+import { AppState } from '../app-state.model';
 import { TasksService } from './tasks.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class TasksComponent {
   newTask: Task = {id: 0, title: ''};
 
   constructor(
-    private store: Store<AppStore>,
+    private store: Store<AppState>,
     private tasksServive: TasksService
   ) {
     this.tasks = store.select('tasks');

@@ -1,3 +1,3 @@
 export interface User {
-  auth: Boolean,
+  auth: boolean,
 }

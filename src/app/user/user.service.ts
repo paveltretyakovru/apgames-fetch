@@ -2,12 +2,12 @@ import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
-import { AppStore } from '../app-store.model';
+import { AppState } from '../app-state.model';
 
 @Injectable()
 export class UserService {
   constructor(
-    private store: Store<AppStore>,
+    private store: Store<AppState>,
     private router: Router
   ) {}
 
