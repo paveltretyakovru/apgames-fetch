@@ -1,10 +1,10 @@
 import { User } from './user.model';
+import { UserActions } from './user.actions';
 
 export type UserState = User;
 
 export const initState: UserState = {
   auth: false,
-  name: 'Aloha',
 }
 
 export const userReducer = (
@@ -13,6 +13,10 @@ export const userReducer = (
 ): UserState => {
 
   switch(action.type) {
+    case UserActions.SET_USER_AUTH: {
+      return { ...state, auth: action.payload };
+    }
+
     default: {
       return { ...state };
     }
