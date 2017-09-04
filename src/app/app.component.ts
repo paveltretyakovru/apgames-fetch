@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { navRoutes } from './app-routing.module';
 import { UserService } from './user/user.service';
 
 @Component({
@@ -11,7 +10,6 @@ import { UserService } from './user/user.service';
 
 export class AppComponent {
   title: string = 'ApGames Fetch';
-  navRoutes: any[] = navRoutes;
 
   constructor(
     private userService: UserService
