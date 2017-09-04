@@ -17,18 +17,30 @@
           <!--  Login  -->
           <div class="form-group">
             <md-input-container>
-              <input mdInput placeholder="Login" [(ngModel)]="authData.login" />
+
+              <input
+                mdInput
+                placeholder="Login"
+                [(ngModel)]="authData.login"
+
+                required
+              />
+
             </md-input-container>
           </div>
 
           <!--  Password  -->
           <div class="form-group">
             <md-input-container>
+
               <input
                 type="password"
                 [(ngModel)]="authData.password"
                 mdInput placeholder="Password"
+
+                required
               />
+
             </md-input-container>
           </div>
 
