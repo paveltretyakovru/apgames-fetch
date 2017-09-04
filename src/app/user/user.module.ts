@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Material modules
-import { MdTabsModule } from '@angular/material';
+import { MdTabsModule, MdCardModule } from '@angular/material';
 
 import { UserService } from './user.service';
 import { TasksModule } from 'app/tasks//tasks.module';
@@ -28,6 +28,7 @@ import { UserProfileStatisticModule } from './user-profile/user-profile-statisti
     
     // Material modules
     MdTabsModule,
+    MdCardModule,
   ],
   
   providers: [ UserService ],

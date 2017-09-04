@@ -1,21 +1,24 @@
 <div id="user-profile-wrapper">
 
   <!-- Navigation tab bar  -->
-   <div class="row">
-    <div class="col-xs">
-      <nav md-tab-nav-bar>
-        <a md-tab-link
-          *ngFor="let navRoute of navRoutes"
-          [routerLink]="navRoute.path"
-          routerLinkActive
-          #rla="routerLinkActive"
-          [routerLinkActiveOptions]="{exact: true}"
-          [active]="rla.isActive">
-          {{navRoute.label}}
-        </a>
-      </nav>
-    </div>
-  </div> 
+  <md-card id="user-profile-card">
+    <div class="row">
+      <div class="col-xs">
+        <nav md-tab-nav-bar>
+          <a md-tab-link
+            *ngFor="let navRoute of navRoutes"
+            [routerLink]="navRoute.path"
+            routerLinkActive
+            #rla="routerLinkActive"
+            [routerLinkActiveOptions]="{exact: true}"
+            [active]="rla.isActive">
+            {{navRoute.label}}
+          </a>
+        </nav>
+      </div>
+    </div> 
 
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+  </md-card>
+
 </div>

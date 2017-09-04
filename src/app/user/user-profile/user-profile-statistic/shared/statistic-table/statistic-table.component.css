@@ -1,10 +1,7 @@
-/* .statistic-table-wrapper .mat-table { width:100%;  overflow: scroll } */
-
 .statistic-table { overflow: auto }
 .statistic-table-row { padding: 0px !important }
 .statistic-table-cell { margin-left: 5px }
 .statistic-table-header-cell { margin: 0px 5px !important;}
 .statistic-table-header-row { padding: 0px !important }
 .statistic-table-header-cell, .statistic-table-cell { font-size: 12px !important; }
-
-.statistic-table-row .statistic-table-cell:first-child {margin-left: 0px}
+.statistic-table-row .statistic-table-cell:first-child {margin-left: 0px; font-weight: 500 }
