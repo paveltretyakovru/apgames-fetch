@@ -1,1 +1,4 @@
-#statistic-grouping-wrapper { padding-top: 14px }
+#statistic-grouping-wrapper form { padding-top: 0px }
+#statistic-grouping-wrapper md-select { width: 100% }
+#user-profile-statistic-wrapper md-input-container { width: 100% }
+#statistic-filters-wrapper { display: flex !important; margin: 12px 0px }

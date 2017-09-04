@@ -1,0 +1,66 @@
+<md-card class="statistic-table-wrapper">
+  <md-table #table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container mdColumnDef="position">
+      <md-header-cell *mdHeaderCellDef> No. </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.position}} </md-cell>
+    </ng-container>
+
+    <!-- date Column -->
+    <ng-container mdColumnDef="date">
+      <md-header-cell *mdHeaderCellDef> date </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.date}} </md-cell>
+    </ng-container>
+
+    <!-- traffic Column -->
+    <ng-container mdColumnDef="traffic">
+      <md-header-cell *mdHeaderCellDef> traffic </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.traffic}} </md-cell>
+    </ng-container>
+
+    <!-- accepted column -->
+    <ng-container mdColumnDef="accepted">
+      <md-header-cell *mdHeaderCellDef> accepted </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.accepted}} </md-cell>
+    </ng-container>
+
+    <!-- inProcessing column -->
+    <ng-container mdColumnDef="inProcessing">
+      <md-header-cell *mdHeaderCellDef> inProcessing </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.inProcessing}} </md-cell>
+    </ng-container>
+
+    <!-- rejected column -->
+    <ng-container mdColumnDef="rejected">
+      <md-header-cell *mdHeaderCellDef> rejected </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.rejected}} </md-cell>
+    </ng-container>
+
+    <!-- accrued column -->
+    <ng-container mdColumnDef="accrued">
+      <md-header-cell *mdHeaderCellDef> accrued </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.accrued}} </md-cell>
+    </ng-container>
+
+    <!-- potentially column -->
+    <ng-container mdColumnDef="potentially">
+      <md-header-cell *mdHeaderCellDef> potentially </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.potentially}} </md-cell>
+    </ng-container>
+
+    <!-- conversion column -->
+    <ng-container mdColumnDef="conversion">
+      <md-header-cell *mdHeaderCellDef> conversion </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.conversion}} </md-cell>
+    </ng-container>
+
+    <!-- epc column -->
+    <ng-container mdColumnDef="epc">
+      <md-header-cell *mdHeaderCellDef> epc </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.epc}} </md-cell>
+    </ng-container>
+
+    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+</md-card>

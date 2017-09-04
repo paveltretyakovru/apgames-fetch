@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <div class="row center-xs">
+  <md-card class="row center-xs" id="statistic-filters-wrapper">
     
     <!--  Period start  -->
     <div class="col-xs-12 col-sm-4 col-md-4">
@@ -16,7 +16,7 @@
               [mdDatepicker]="pickerStart" 
               [(ngModel)]="dateStart"
               placeholder="Choose a start date">
-        <button mdSuffix [mdDatepickerToggle]="pickerStart"></button>
+              <md-datepicker-toggle mdSuffix [for]="pickerStart"></md-datepicker-toggle>
       </md-input-container>
       <md-datepicker  #pickerStart></md-datepicker>
     </div>
@@ -28,7 +28,7 @@
               [mdDatepicker]="pickerEnd" 
               [(ngModel)]="dateEnd"
               placeholder="Choose a end date">
-        <button mdSuffix [mdDatepickerToggle]="pickerEnd"></button>
+              <md-datepicker-toggle mdSuffix [for]="pickerEnd"></md-datepicker-toggle>
       </md-input-container>
       <md-datepicker  #pickerEnd></md-datepicker>
     </div>
@@ -44,5 +44,13 @@
       </form>
     </div>
 
+  </md-card>
+
+  <div class="row">
+    <div class="col-xs-12">
+      
+      <statistic-table></statistic-table>
+
+    </div>
   </div>
 </div>
