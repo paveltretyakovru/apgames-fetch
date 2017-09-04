@@ -5,6 +5,7 @@ import { TasksRouting } from './tasks/tasks.routing';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './shared/auth-guard.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
   {
@@ -17,13 +18,16 @@ const appRoutes: Routes = [
   },
   {
     path: 'user',
-    canLoad: [AuthGuardService],
+    canLoad: [ AuthGuardService ],
     loadChildren: './user/user.module#UserModule',
   },
   {
     path: 'login',
     component: LoginComponent,
   },
+
+  // 404
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

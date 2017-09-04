@@ -25,6 +25,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { AuthGuardService } from './shared/auth-guard.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { reducers, storeInitState, metaReducers } from './reducers';
 
 @NgModule({
@@ -69,6 +70,7 @@ import { reducers, storeInitState, metaReducers } from './reducers';
     AppComponent,
     HomeComponent,
     LoginComponent,
+    NotFoundComponent,
   ],
 
   bootstrap: [ AppComponent ],
