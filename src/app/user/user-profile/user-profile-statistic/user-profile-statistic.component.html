@@ -1,7 +1,11 @@
 <div id="user-profile-statistic-wrapper">
-  <p class="title">
-    User profile statistic
-  </p>
+  <div class="row center-xs">
+    <div class="col-xs-12">
+      <p class="title">
+        User profile statistic
+      </p>
+    </div>
+  </div>
 
   <div class="row center-xs">
     
@@ -30,8 +34,14 @@
     </div>
 
     <!--  Period end  -->
-    <div class="col-xs-12 col-sm-4 col-md-4">
-      Group
+    <div class="col-xs-12 col-sm-4 col-md-4" id="statistic-grouping-wrapper">
+      <form>
+        <md-select placeholder="Grouping" [(ngModel)]="selectedValue" name="source">
+          <md-option *ngFor="let source of sources" [value]="source.value">
+            {{source.viewValue}}
+          </md-option>
+        </md-select>
+      </form>
     </div>
 
   </div>
