@@ -3,8 +3,8 @@ import { ExampleDataSource } from './shared/example-data-source';
 
 @Component({
   selector: 'statistic-table',
-  templateUrl: './statistic-table.component.html',
-  styleUrls: ['./statistic-table.component.css']
+  templateUrl: 'statistic-table.component.html',
+  styleUrls: ['statistic-table.component.css']
 })
 export class StatisticTableComponent implements OnInit {
   displayedColumns = [

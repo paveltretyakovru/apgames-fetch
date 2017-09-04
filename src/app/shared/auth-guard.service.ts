@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { Router, CanActivateChild, ActivatedRouteSnapshot } from '@angular/router';
 
-import { User } from 'app/user//user.model';
+import { User } from 'app/user/user.model';
 import { AppState } from 'app/app-state.model';
 import { AuthService } from './auth.service';
 
@@ -32,12 +32,10 @@ export class AuthGuardService implements CanActivateChild {
     // Check login from server
     return this.checkLogin((result: boolean) => {
       if(result) {
-        if(!this.user.auth) this.authService.setUserAuth(true);
         return true;
       } else {
 
         // If user are not signed, then move him to the login page
-        if(this.user.auth) this.authService.setUserAuth(false);
         this.router.navigate(['/login']);
         return false;
       }
@@ -46,7 +44,8 @@ export class AuthGuardService implements CanActivateChild {
 
   checkLogin(callback: any = (result:boolean) => result): Observable<boolean> {
     return Observable.of(true).delay(300).do((val) => {
-      callback([true, false][Math.floor(Math.random()*2)]);
+      callback(this.user.auth);
+      // callback([true, false][Math.floor(Math.random()*2)]);
     });
   }
 }

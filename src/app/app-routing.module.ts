@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TasksRouting } from './tasks/tasks.routing';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './shared/auth-guard.service';
 
 const appRoutes: Routes = [
   {
@@ -16,18 +17,13 @@ const appRoutes: Routes = [
   },
   {
     path: 'user',
+    canLoad: [AuthGuardService],
     loadChildren: './user/user.module#UserModule',
   },
   {
     path: 'login',
     component: LoginComponent,
   },
-];
-
-export const navRoutes: any[] = [
-  { path: './', label: 'Home', isActive: false },
-  { path: 'statistic', label: 'Statistic', isActive: true },
-  { path: 'tasks', label: 'Tasks', isActive: false },
 ];
 
 @NgModule({

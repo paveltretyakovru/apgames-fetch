@@ -1,36 +1,31 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { UserComponent } from './user.component';
 import { TasksComponent } from 'app/tasks//tasks.component';
 import { AuthGuardService } from 'app/shared/auth-guard.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UserProfileIndexComponent } from './user-profile/user-profile-index/user-profile-index.component';
-import { UserProfileStatisticComponent } from './user-profile/user-profile-statistic/user-profile-statistic.component';
+import { UserStatisticComponent } from './user-statistic/user-statistic.component';
 
 export const userRouting: Routes = [  
   {
     path: 'user',
+    canLoad: [ AuthGuardService ],
+    component: UserComponent,
     canActivateChild: [ AuthGuardService ],
+    
     children: [
-      // USER/PROFILE ROUTE
+      {
+        path: 'tasks',
+        component: TasksComponent,
+      },
+      {
+        path: 'statistic',
+        component: UserStatisticComponent,
+      },
       {
         path: 'profile',
         component: UserProfileComponent,
-        canActivateChild: [ AuthGuardService ],
-        children: [
-          {
-            path: '',
-            component: UserProfileIndexComponent,
-          },
-          {
-            path: 'tasks',
-            component: TasksComponent,
-          },
-          {
-            path: 'statistic',
-            component: UserProfileStatisticComponent,
-          }
-        ],
       },
     ],
   },

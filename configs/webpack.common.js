@@ -12,7 +12,7 @@ module.exports = {
     app: './src/main.ts',
   },
 
-  devtool: 'inline-source-map',
+  devtool: 'cheap-module-eval-source-map',
 
   module: {
     rules: [

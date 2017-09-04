@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { AppState } from 'app/app-state.model';
 import { AuthData } from 'app/shared/models/auth-data.model';
-import { AppActions } from 'app//app.actions';
+import { AppActions } from 'app/app.actions';
 import { UserActions } from 'app/user/user.actions';
 
 @Injectable()
@@ -13,6 +13,7 @@ export class AuthService {
   constructor(private store: Store<AppState>, private router: Router) {}
 
   setUserAuth(value: boolean): void {
+    console.log('setUserAuth set here');
     this.store.dispatch({ type: UserActions.SET_USER_AUTH, payload: value });
   }
 
@@ -29,8 +30,9 @@ export class AuthService {
           if(val) {
             options.success(val);
 
+            console.log('login() - Here set!');
             this.store.dispatch({ type: UserActions.SET_USER_AUTH, payload: true });
-            this.router.navigate(['user/profile/statistic']);
+            this.router.navigate(['user/statistic']);
             this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
 
             return true;

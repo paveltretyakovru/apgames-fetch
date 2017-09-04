@@ -16,12 +16,12 @@ import {
 
 // Self
 import { StatisticTableComponent } from './shared/statistic-table/statistic-table.component';
-import { UserProfileStatisticComponent } from './user-profile-statistic.component';
+import { UserStatisticComponent } from './user-statistic.component';
 
 @NgModule({
   declarations: [
     StatisticTableComponent,
-    UserProfileStatisticComponent,
+    UserStatisticComponent,
   ],
 
   imports: [
@@ -47,4 +47,4 @@ import { UserProfileStatisticComponent } from './user-profile-statistic.componen
   exports: [],
   providers: [],
 })
-export class UserProfileStatisticModule {}
+export class UserStatisticModule {}

@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
 
-import { navRoutes } from 'app/app-routing.module';
+import { AuthService } from 'app/shared/auth.service';
 
 @Component({
-  selector: 'user-profile-wrapper',
+  selector: 'user-profile',
   styleUrls: ['user-profile.component.css'],
   templateUrl: 'user-profile.component.html',
 })
 export class UserProfileComponent {
-  navRoutes: any[] = navRoutes;
+  constructor(private authService: AuthService) {}
+
+  logout(): void {
+    console.log('Logout');
+    this.authService.logout();
+  }
 }

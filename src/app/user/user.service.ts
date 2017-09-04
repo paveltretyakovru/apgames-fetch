@@ -12,7 +12,7 @@ export class UserService {
   ) {}
 
   routeToProfile() {
-    this.router.navigate(['/user/profile/statistic']);
+    this.router.navigate(['/user/statistic']);
   }
 
   routeToHome() {

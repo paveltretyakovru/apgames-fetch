@@ -6,16 +6,16 @@ import { MdTabsModule, MdCardModule } from '@angular/material';
 
 import { UserService } from './user.service';
 import { TasksModule } from 'app/tasks/tasks.module';
+import { UserComponent } from './user.component';
 import { MdButtonModule } from "@angular/material";
 import { UserRoutingModule } from './user-routing.module';
+import { UserStatisticModule } from './user-statistic/user-statistic.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UserProfileIndexComponent } from './user-profile/user-profile-index/user-profile-index.component';
-import { UserProfileStatisticModule } from './user-profile/user-profile-statistic/user-profile-statistic.module';
 
 @NgModule({
   declarations: [
+    UserComponent,
     UserProfileComponent,
-    UserProfileIndexComponent,
   ],
   
   imports: [
@@ -24,8 +24,8 @@ import { UserProfileStatisticModule } from './user-profile/user-profile-statisti
 
     // Self modules
     TasksModule,
+    UserStatisticModule,
     UserRoutingModule,
-    UserProfileStatisticModule,
     
     // Material modules
     MdTabsModule,
