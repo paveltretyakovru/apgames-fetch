@@ -11,7 +11,6 @@ export class UserProfileComponent {
   constructor(private authService: AuthService) {}
 
   logout(): void {
-    console.log('Logout');
     this.authService.logout();
   }
 }

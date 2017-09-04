@@ -13,7 +13,6 @@ export class AuthService {
   constructor(private store: Store<AppState>, private router: Router) {}
 
   setUserAuth(value: boolean): void {
-    console.log('setUserAuth set here');
     this.store.dispatch({ type: UserActions.SET_USER_AUTH, payload: value });
   }
 
@@ -23,14 +22,13 @@ export class AuthService {
 
       // Imitation of login
       return Observable.of([true, false][Math.floor(Math.random()*2)])
-        .delay(5000)
+        .delay(2000)
         .do((val: boolean) => {
           
           // Random currect login & password
           if(val) {
             options.success(val);
 
-            console.log('login() - Here set!');
             this.store.dispatch({ type: UserActions.SET_USER_AUTH, payload: true });
             this.router.navigate(['user/statistic']);
             this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
