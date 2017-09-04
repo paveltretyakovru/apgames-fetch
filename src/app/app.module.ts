@@ -27,7 +27,13 @@ import { AuthGuardService } from './shared/auth-guard.service';
 import { reducers, storeInitState, metaReducers } from './reducers';
 
 @NgModule({
-  exports: [ FormsModule ],
+  exports: [
+    FormsModule,
+    MdInputModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+  ],
   imports: [
 
     // Angular modules

@@ -25,9 +25,9 @@ const appRoutes: Routes = [
 ];
 
 export const navRoutes: any[] = [
-  { path: './', label: 'Home', isActive: true },
-  { path: 'statistic', label: 'Statistic', isActive: false },
-  { path: 'tasks', label: 'Tasks Manager', isActive: false },
+  { path: './', label: 'Home', isActive: false },
+  { path: 'statistic', label: 'Statistic', isActive: true },
+  { path: 'tasks', label: 'Tasks', isActive: false },
 ];
 
 @NgModule({

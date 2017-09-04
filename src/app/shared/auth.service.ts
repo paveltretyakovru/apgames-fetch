@@ -28,7 +28,7 @@ export class AuthService {
             options.success(val);
 
             this.store.dispatch({ type: UserActions.SET_USER_AUTH, payload: true });
-            this.router.navigate(['user/profile/']);
+            this.router.navigate(['user/profile/statistic']);
 
             return true;
           } else {
