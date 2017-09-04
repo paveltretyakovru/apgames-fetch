@@ -1,4 +1,8 @@
 #statistic-grouping-wrapper form { padding-top: 0px }
-#statistic-grouping-wrapper md-select { width: 100% }
+#statistic-grouping-wrapper md-select { width: 100%; text-align: left }
+
+#statistic-filters-wrapper { margin: 0px }
+#statistic-filters-wrapper .mat-select { margin: 0px 0px 20px }
+
+#user-profile-statistic-wrapper { padding: 16px 0px; }
 #user-profile-statistic-wrapper md-input-container { width: 100% }
-#statistic-filters-wrapper { display: flex !important; margin: 12px 0px }

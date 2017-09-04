@@ -1,50 +1,52 @@
 <div id="user-profile-statistic-wrapper">
-  <div class="row center-xs">
-    <div class="col-xs-12">
-      <p class="title">
-        User profile statistic
-      </p>
-    </div>
-  </div>
 
-  <md-card class="row center-xs" id="statistic-filters-wrapper">
+  <md-card id="statistic-filters-wrapper">
+    <div class="row center-xs">
+      <div class="col-xs-12">
+        <p class="title">
+          User profile statistic
+        </p>
+      </div>
+    </div>
     
-    <!--  Period start  -->
-    <div class="col-xs-12 col-sm-4 col-md-4">
-      <md-input-container>
-        <input mdInput 
-              [mdDatepicker]="pickerStart" 
-              [(ngModel)]="dateStart"
-              placeholder="Choose a start date">
-              <md-datepicker-toggle mdSuffix [for]="pickerStart"></md-datepicker-toggle>
-      </md-input-container>
-      <md-datepicker  #pickerStart></md-datepicker>
-    </div>
+    <div class="row">
+      <!--  Period start  -->
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <md-input-container>
+          <input mdInput 
+                [mdDatepicker]="pickerStart" 
+                [(ngModel)]="dateStart"
+                placeholder="Choose a start date">
+                <md-datepicker-toggle mdSuffix [for]="pickerStart"></md-datepicker-toggle>
+        </md-input-container>
+        <md-datepicker  #pickerStart></md-datepicker>
+      </div>
 
-    <!--  Period end  -->
-    <div class="col-xs-12 col-sm-4 col-md-4">
-      <md-input-container>
-        <input mdInput 
-              [mdDatepicker]="pickerEnd" 
-              [(ngModel)]="dateEnd"
-              placeholder="Choose a end date">
-              <md-datepicker-toggle mdSuffix [for]="pickerEnd"></md-datepicker-toggle>
-      </md-input-container>
-      <md-datepicker  #pickerEnd></md-datepicker>
-    </div>
+      <!--  Period end  -->
+      <div class="col-xs-12 col-sm-4 col-md-4">
+        <md-input-container>
+          <input mdInput 
+                [mdDatepicker]="pickerEnd" 
+                [(ngModel)]="dateEnd"
+                placeholder="Choose a end date">
+                <md-datepicker-toggle mdSuffix [for]="pickerEnd"></md-datepicker-toggle>
+        </md-input-container>
+        <md-datepicker  #pickerEnd></md-datepicker>
+      </div>
 
-    <!--  Period end  -->
-    <div class="col-xs-12 col-sm-4 col-md-4" id="statistic-grouping-wrapper">
-      <form>
-        <md-select placeholder="Grouping" [(ngModel)]="selectedValue" name="source">
-          <md-option *ngFor="let source of sources" [value]="source.value">
-            {{source.viewValue}}
-          </md-option>
-        </md-select>
-      </form>
-    </div>
+      <!--  Period end  -->
+      <div class="col-xs-12 col-sm-4 col-md-4" id="statistic-grouping-wrapper">
+        <form>
+          <md-select placeholder="Grouping" [(ngModel)]="selectedValue" name="source">
+            <md-option *ngFor="let source of sources" [value]="source.value">
+              {{source.viewValue}}
+            </md-option>
+          </md-select>
+        </form>
+      </div>
+    </div> 
+    <!-- /.row  -->
 
-  </md-card>
 
   <div class="row">
     <div class="col-xs-12">
@@ -53,4 +55,5 @@
 
     </div>
   </div>
+  </md-card>
 </div>
