@@ -3,11 +3,13 @@ import { storeLogger } from 'ngrx-store-logger';
 import { combineReducers, ActionReducerMap, ActionReducer } from '@ngrx/store';
 
 import { AppState } from './app-state.model';
+import { appReducer, initState as appInitState } from './app.reducer';
 import { userReducer, initState as userInitState } from './user/user.reducer';
 import { tasksReducer, initState as tasksInitState } from './tasks/tasks.reducer';
 
 // Full initial state
 export const storeInitState: AppState = {
+  app: appInitState,
   user: userInitState,
   tasks: tasksInitState,
 };
@@ -19,6 +21,7 @@ export const metaReducers:Array<any> = [
 
 // Reducers Map
 export const reducers: ActionReducerMap<AppState> = {
+  app: appReducer,
   user: userReducer,
   tasks: tasksReducer,  
 };

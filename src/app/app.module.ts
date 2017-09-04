@@ -12,6 +12,7 @@ import {
   MdInputModule,
   MdButtonModule,
   MdToolbarModule,
+  MdProgressBarModule,
 } from '@angular/material';
 
 // Self imports
@@ -31,6 +32,7 @@ import { reducers, storeInitState, metaReducers } from './reducers';
     FormsModule,
     MdInputModule,
     BrowserModule,
+    MdProgressBarModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
@@ -59,6 +61,7 @@ import { reducers, storeInitState, metaReducers } from './reducers';
     MdInputModule,
     MdButtonModule,
     MdToolbarModule,
+    MdProgressBarModule,
     BrowserAnimationsModule,
   ],
 

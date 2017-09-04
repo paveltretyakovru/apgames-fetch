@@ -4,7 +4,7 @@ import { UserActions } from './user.actions';
 export type UserState = User;
 
 export const initState: UserState = {
-  auth: true,
+  auth: false,
 }
 
 export const userReducer = (

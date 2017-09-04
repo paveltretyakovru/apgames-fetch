@@ -10,12 +10,13 @@ import { UserProfileStatisticComponent } from './user-profile/user-profile-stati
 export const userRouting: Routes = [  
   {
     path: 'user',
-    canActivateChild: [AuthGuardService],
+    canActivateChild: [ AuthGuardService ],
     children: [
       // USER/PROFILE ROUTE
       {
         path: 'profile',
         component: UserProfileComponent,
+        canActivateChild: [ AuthGuardService ],
         children: [
           {
             path: '',

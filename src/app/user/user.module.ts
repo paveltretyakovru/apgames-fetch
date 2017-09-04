@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common';
 import { MdTabsModule, MdCardModule } from '@angular/material';
 
 import { UserService } from './user.service';
-import { TasksModule } from 'app/tasks//tasks.module';
+import { TasksModule } from 'app/tasks/tasks.module';
+import { MdButtonModule } from "@angular/material";
 import { UserRoutingModule } from './user-routing.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserProfileIndexComponent } from './user-profile/user-profile-index/user-profile-index.component';
@@ -29,6 +30,7 @@ import { UserProfileStatisticModule } from './user-profile/user-profile-statisti
     // Material modules
     MdTabsModule,
     MdCardModule,
+    MdButtonModule,
   ],
   
   providers: [ UserService ],
