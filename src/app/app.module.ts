@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -27,11 +27,13 @@ import { AuthGuardService } from './shared/auth-guard.service';
 import { reducers, storeInitState, metaReducers } from './reducers';
 
 @NgModule({
+  exports: [ FormsModule ],
   imports: [
 
     // Angular modules
     FormsModule,
     BrowserModule,
+    ReactiveFormsModule,
     
     // Self modules
     UserModule,

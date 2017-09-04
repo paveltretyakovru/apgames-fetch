@@ -2,55 +2,82 @@
   <div class="col-xs-12 col-sm-6">
     <div id="user-login-wrapper">
 
-      <md-card>
+      <form [formGroup]="loginForm" #formDir="ngForm" (ngSubmit)="onSubmit()">
+        <md-card>
 
-        <!--  Card Herader  -->
-        <md-card-header>
-          <md-card-title>
-            <span class="headline">Sign in</span>
-          </md-card-title>
-        </md-card-header>
+          <!--  Card Herader  -->
+          <md-card-header>
+            <md-card-title>
+              <span class="headline">Sign in</span>
+            </md-card-title>
+          </md-card-header>
 
-        <!--  Card Content  -->
-        <md-card-content>
+          <!--  Card Content  -->
+          <md-card-content>
 
-          <!--  Login  -->
-          <div class="form-group">
-            <md-input-container>
+            <!--  Login  -->
+            <div class="form-group">
+              <md-input-container>
 
-              <input
-                mdInput
-                placeholder="Login"
-                [(ngModel)]="authData.login"
+                <input
+                  mdInput
+                  [(ngModel)]="authData.login"
+                  placeholder="Login"
+                  formControlName="login"
 
-                required
-              />
+                  required
+                />
+                <div *ngIf="login.invalid && (login.dirty || login.touched)">
+                  <md-error *ngIf="login.errors.required">
+                    Login is required.
+                  </md-error>
+                  <md-error *ngIf="login.errors.minlength">
+                    Login must be at least 4 characters long.
+                  </md-error>
+                </div>
 
-            </md-input-container>
-          </div>
+              </md-input-container>
+            </div>
 
-          <!--  Password  -->
-          <div class="form-group">
-            <md-input-container>
+            <!--  Password  -->
+            <div class="form-group">
+              <md-input-container>
 
-              <input
-                type="password"
-                [(ngModel)]="authData.password"
-                mdInput placeholder="Password"
+                <input
+                  type="password"
+                  [(ngModel)]="authData.password"
+                  mdInput placeholder="Password"
+                  formControlName="password"
 
-                required
-              />
+                  required
+                />
 
-            </md-input-container>
-          </div>
+                <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                  <md-error *ngIf="password.errors.required">
+                    Password is required.
+                  </md-error>
+                  <md-error *ngIf="password.errors.minlength">
+                    Password must be at least 4 characters long.
+                  </md-error>
+                </div>
 
-        </md-card-content>
+              </md-input-container>
+            </div>
 
-        <!--  Card Actions  -->
-        <md-card-actions>
-          <button md-button (click)="login()">Login</button>
-        </md-card-actions>
-      </md-card>
+          </md-card-content>
+
+          <!--  Card Actions  -->
+          <md-card-actions>
+            <button
+              md-button 
+              type="submit" 
+              [disabled]="loginForm.invalid"
+            >
+              Login
+            </button>
+          </md-card-actions>
+        </md-card>
+      </form>
 
     </div>
   </div>
