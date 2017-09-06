@@ -8,37 +8,37 @@
 
     <!-- date Column -->
     <ng-container mdColumnDef="date">
-      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">date</md-header-cell>
+      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">Date</md-header-cell>
       <md-cell *mdCellDef="let element" class="statistic-table-cell" mdTooltip="date">{{element.date}}</md-cell>
     </ng-container>
 
     <!-- traffic Column -->
     <ng-container mdColumnDef="traffic">
-      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">traffic</md-header-cell>
+      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">Traffic</md-header-cell>
       <md-cell *mdCellDef="let element" class="statistic-table-cell" mdTooltip="traffic">{{element.traffic}}</md-cell>
     </ng-container>
 
     <!-- accepted column -->
     <ng-container mdColumnDef="accepted">
-      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">accepted</md-header-cell>
+      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">Accepted</md-header-cell>
       <md-cell *mdCellDef="let element" class="statistic-table-cell" mdTooltip="accepted">{{element.accepted}}</md-cell>
     </ng-container>
 
     <!-- inProcessing column -->
     <ng-container mdColumnDef="inProcessing">
-      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">inProcessing</md-header-cell>
+      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">In processing</md-header-cell>
       <md-cell *mdCellDef="let element" class="statistic-table-cell" mdTooltip="inProcessing">{{element.inProcessing}}</md-cell>
     </ng-container>
 
     <!-- rejected column -->
     <ng-container mdColumnDef="rejected">
-      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">rejected</md-header-cell>
+      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">Rejected</md-header-cell>
       <md-cell *mdCellDef="let element" class="statistic-table-cell" mdTooltip="rejected">{{element.rejected}}</md-cell>
     </ng-container>
 
     <!-- accrued column -->
     <ng-container mdColumnDef="accrued">
-      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">accrued</md-header-cell>
+      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">Accrued</md-header-cell>
       <md-cell *mdCellDef="let element" class="statistic-table-cell" mdTooltip="accrued">
         {{element.accrued}}<span class="rouble-sign">&#x20bd;</span>
       </md-cell>
@@ -46,22 +46,20 @@
 
     <!-- potentially column -->
     <ng-container mdColumnDef="potentially">
-      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">potentially</md-header-cell>
-      <md-cell *mdCellDef="let element" class="statistic-table-cell">{{element.potentially}}</md-cell>
+      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">Potentially</md-header-cell>
+      <md-cell *mdCellDef="let element" class="statistic-table-cell" mdTooltip="potentially">{{element.potentially}}</md-cell>
     </ng-container>
 
     <!-- conversion column -->
     <ng-container mdColumnDef="conversion">
-      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">conversion</md-header-cell>
-      <md-cell *mdCellDef="let element" class="statistic-table-cell">{{element.conversion}}</md-cell>
+      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">Conversion</md-header-cell>
+      <md-cell *mdCellDef="let element" class="statistic-table-cell" mdTooltip="conversion">{{element.conversion}}</md-cell>
     </ng-container>
 
     <!-- epc column -->
     <ng-container mdColumnDef="epc">
-      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">epc</md-header-cell>
-      <md-cell *mdCellDef="let element" class="statistic-table-cell">
-        {{element.epc}}<span class="rouble-sign">&#x20bd;</span>
-      </md-cell>
+      <md-header-cell *mdHeaderCellDef class="statistic-table-header-cell">Epc</md-header-cell>
+      <md-cell *mdCellDef="let element" class="statistic-table-cell" mdTooltip="epc">{{element.epc}}<span class="rouble-sign">&#x20bd;</span></md-cell>
     </ng-container>
 
     <md-header-row *mdHeaderRowDef="displayedColumns" class="statistic-table-header-row"></md-header-row>

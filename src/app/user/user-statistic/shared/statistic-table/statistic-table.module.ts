@@ -1,29 +1,37 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule }       from '@angular/core';
+import { FormsModule }    from "@angular/forms";
+import { CommonModule }   from '@angular/common';
 import { CdkTableModule } from '@angular/cdk/table';
 
 // Material modules
 import {
+  MdInputModule,
   MdTableModule,
   MdTooltipModule,
+  MdNativeDateModule,
+  MdDatepickerModule,
 } from "@angular/material";
 
-import { StatisticTableComponent } from "./statistic-table.component";
+// Self components and modules
+import { DatepickerComponent }      from './shared/datepicker/datepicker.component';
+import { StatisticTableComponent }  from "./statistic-table.component";
 
 @NgModule({
-  declarations: [ StatisticTableComponent ],
+  exports:      [ StatisticTableComponent ],
+  declarations: [ DatepickerComponent, StatisticTableComponent ],
+
   imports: [
-    // Angular modules
+    // ======== Angular modules ===========
     CommonModule,
+    FormsModule,
 
     // ========= Material modules =========
-    // DataTable modules
-    MdTableModule,
+    MdInputModule,      // Input module
+    MdTableModule,      // DataTable modules
     CdkTableModule,
-    // Tooltip
-    MdTooltipModule,
+    MdTooltipModule,    // Tooltip
+    MdDatepickerModule, // Datepicker modules
+    MdNativeDateModule,
   ],
-  exports: [ StatisticTableComponent ],
-  providers: [],
 })
 export class StatisticTableModule {};

@@ -1,25 +1,16 @@
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { NgModule }     from '@angular/core';
+import { FormsModule }  from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import {
-  MdCardModule,
-  MdInputModule,
-  MaterialModule,
-  MdSelectModule,
-  MdOptionModule,
-  MdNativeDateModule,
-  MdDatepickerModule,
-} from "@angular/material";
+// Material modules
+import { MdCardModule, MaterialModule, MdSelectModule, MdOptionModule } from "@angular/material";
 
 // Self
-import { StatisticTableModule } from "./shared/statistic-table/statistic-table.module";
+import { StatisticTableModule }   from "./shared/statistic-table/statistic-table.module";
 import { UserStatisticComponent } from './user-statistic.component';
 
 @NgModule({
-  declarations: [
-    UserStatisticComponent,
-  ],
+  declarations: [ UserStatisticComponent ],
 
   imports: [
     // ====== Angular modules =======
@@ -31,17 +22,10 @@ import { UserStatisticComponent } from './user-statistic.component';
     
     // ====== Material modules ======
     MdCardModule,
-    MdInputModule,
     MaterialModule,
-    // Datepicker modules
-    MdDatepickerModule,
-    MdNativeDateModule,
     // Select modules
     MdSelectModule,
     MdOptionModule,
   ],
-
-  exports: [],
-  providers: [],
 })
 export class UserStatisticModule {}

@@ -1,0 +1,11 @@
+<div class="datepicker-component-wrapper">
+  <md-input-container>
+    <input
+      mdInput 
+      placeholder="Choose a start date"
+      [(ngModel)]="dateStart"
+      [mdDatepicker]="pickerStart">
+    <md-datepicker-toggle mdSuffix [for]="pickerStart"></md-datepicker-toggle>
+  </md-input-container>
+  <md-datepicker  #pickerStart></md-datepicker>
+</div>

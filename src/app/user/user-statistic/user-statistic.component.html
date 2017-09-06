@@ -11,31 +11,17 @@
     
     <div class="row">
       <!--  Period start  -->
-      <div class="col-xs-12 col-sm-4 col-md-4">
-        <md-input-container>
-          <input mdInput 
-                [mdDatepicker]="pickerStart" 
-                [(ngModel)]="dateStart"
-                placeholder="Choose a start date">
-                <md-datepicker-toggle mdSuffix [for]="pickerStart"></md-datepicker-toggle>
-        </md-input-container>
-        <md-datepicker  #pickerStart></md-datepicker>
+      <div class="col-xs-12 col-sm-3 col-md-3">
+        <!-- datepicker  -->
       </div>
 
       <!--  Period end  -->
-      <div class="col-xs-12 col-sm-4 col-md-4">
-        <md-input-container>
-          <input mdInput 
-                [mdDatepicker]="pickerEnd" 
-                [(ngModel)]="dateEnd"
-                placeholder="Choose a end date">
-                <md-datepicker-toggle mdSuffix [for]="pickerEnd"></md-datepicker-toggle>
-        </md-input-container>
-        <md-datepicker  #pickerEnd></md-datepicker>
+      <div class="col-xs-12 col-sm-3 col-md-3">
+        <!-- datepicker -->
       </div>
 
       <!--  Period end  -->
-      <div class="col-xs-12 col-sm-4 col-md-4" id="statistic-grouping-wrapper">
+      <div class="col-xs-12 col-sm-3 col-md-3" id="statistic-grouping-wrapper">
         <form>
           <md-select placeholder="Grouping" [(ngModel)]="selectedValue" name="source">
             <md-option *ngFor="let source of sources" [value]="source.value">
@@ -44,9 +30,15 @@
           </md-select>
         </form>
       </div>
+
+      <!--  Button go  -->
+      <div class="col-xs-12 col-sm-3 col-md-3" id="statistic-go-button-wrapper">
+        <button md-raised-button color="accent">LET'S GO!</button>
+      </div>
+
+
     </div> 
     <!-- /.row  -->
-
 
   <div class="row">
     <div class="col-xs-12">

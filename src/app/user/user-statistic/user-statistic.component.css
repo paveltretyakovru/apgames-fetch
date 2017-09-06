@@ -6,3 +6,6 @@
 
 #user-profile-statistic-wrapper { padding: 16px 0px; }
 #user-profile-statistic-wrapper md-input-container { width: 100% }
+
+#statistic-go-button-wrapper { padding-top: 8px; }
+#statistic-go-button-wrapper button { width: 100%; }
