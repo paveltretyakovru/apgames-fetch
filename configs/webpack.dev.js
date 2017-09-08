@@ -16,7 +16,7 @@ module.exports = webpackMerge(commonConfig, {
 
   plugins: [
     new htmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/frontend/index.html'
     }),
   ]
 });
