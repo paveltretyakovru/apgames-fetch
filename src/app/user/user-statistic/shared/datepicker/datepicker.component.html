@@ -2,7 +2,7 @@
   <md-input-container>
     <input
       mdInput 
-      placeholder="Choose a start date"
+      [placeholder]="placeholder"
       [(ngModel)]="dateStart"
       [mdDatepicker]="pickerStart">
     <md-datepicker-toggle mdSuffix [for]="pickerStart"></md-datepicker-toggle>

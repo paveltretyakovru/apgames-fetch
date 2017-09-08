@@ -3,14 +3,22 @@ import { FormsModule }  from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 // Material modules
-import { MdCardModule, MaterialModule, MdSelectModule, MdOptionModule } from "@angular/material";
+import {
+  MdCardModule,
+  MaterialModule,
+  MdSelectModule,
+  MdOptionModule,
+  MdDatepickerModule,
+  MdNativeDateModule,
+} from "@angular/material";
 
 // Self
+import { DatepickerComponent }      from './shared/datepicker/datepicker.component';
 import { StatisticTableModule }   from "./shared/statistic-table/statistic-table.module";
 import { UserStatisticComponent } from './user-statistic.component';
 
 @NgModule({
-  declarations: [ UserStatisticComponent ],
+  declarations: [ UserStatisticComponent, DatepickerComponent ],
 
   imports: [
     // ====== Angular modules =======
@@ -26,6 +34,8 @@ import { UserStatisticComponent } from './user-statistic.component';
     // Select modules
     MdSelectModule,
     MdOptionModule,
+    MdDatepickerModule, // Datepicker modules
+    MdNativeDateModule,
   ],
 })
 export class UserStatisticModule {}

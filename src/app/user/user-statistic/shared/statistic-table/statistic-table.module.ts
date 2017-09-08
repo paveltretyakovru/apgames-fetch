@@ -13,12 +13,11 @@ import {
 } from "@angular/material";
 
 // Self components and modules
-import { DatepickerComponent }      from './shared/datepicker/datepicker.component';
 import { StatisticTableComponent }  from "./statistic-table.component";
 
 @NgModule({
   exports:      [ StatisticTableComponent ],
-  declarations: [ DatepickerComponent, StatisticTableComponent ],
+  declarations: [ StatisticTableComponent ],
 
   imports: [
     // ======== Angular modules ===========
@@ -30,8 +29,6 @@ import { StatisticTableComponent }  from "./statistic-table.component";
     MdTableModule,      // DataTable modules
     CdkTableModule,
     MdTooltipModule,    // Tooltip
-    MdDatepickerModule, // Datepicker modules
-    MdNativeDateModule,
   ],
 })
 export class StatisticTableModule {};

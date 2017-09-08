@@ -1,18 +1,7 @@
 import { Observable } from 'rxjs/Observable';
 import { DataSource } from '@angular/cdk/collections';
 
-export interface Element {
-  epc: Number;
-  date: string;
-  accrued: Number;
-  traffic: Number;
-  position: Number;
-  accepted: Number;
-  rejected: Number;
-  conversion: string;
-  potentially: Number;
-  inProcessing: Number;
-};
+import { StatisticPosition as Element } from 'app/user/user-statistic/shared/models/StatisticPosition';
 
 export class ExampleDataSource extends DataSource<any> {
 
