@@ -1,7 +1,6 @@
 const notifier = require('node-notifier');
 const cors = require('cors');
 
-
 // Init express application
 const app = new (require('express'))();
 
@@ -14,9 +13,8 @@ app.set('frontHost', process.env.FRONT_HOST || 'localhost:8080');
 app.use(cors({credentials: true, origin: app.get('frontHost')}));
 
 // Init routes
-app.get('/', (req, res) => {
-  res.send('Hello world!');
-});
+app.get('/', (req, res) => res.send('Hello world!'));
+app.use('/statistic', require('./src/backend/statistic/statistic.route'));
 
 // Init server
 app.listen(app.get('port'), app.get('host'), error => {
