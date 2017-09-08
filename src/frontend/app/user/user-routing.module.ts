@@ -27,6 +27,11 @@ export const userRouting: Routes = [
         path: 'profile',
         component: UserProfileComponent,
       },
+      {
+        path: 'admin',
+        canLoad: [ AuthGuardService ],
+        loadChildren: './user-admin/user-admin.module#UserAdminModule',
+      },
     ],
   },
 ];

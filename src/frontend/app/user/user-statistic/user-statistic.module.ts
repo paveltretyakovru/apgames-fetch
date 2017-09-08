@@ -1,6 +1,7 @@
-import { NgModule }     from '@angular/core';
-import { FormsModule }  from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { NgModule }         from '@angular/core';
+import { FormsModule }      from '@angular/forms';
+import { CommonModule }     from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 // Material modules
 import {
@@ -24,6 +25,7 @@ import { UserStatisticComponent } from './user-statistic.component';
     // ====== Angular modules =======
     FormsModule,
     CommonModule,
+    HttpClientModule,
 
     // ====== Self modules ==========
     StatisticTableModule,

@@ -7,14 +7,14 @@ const app = new (require('express'))();
 // Init app vars
 app.set('port', process.env.PORT || 3002);
 app.set('host', process.env.SERVER_HOST || 'localhost');
-app.set('frontHost', process.env.FRONT_HOST || 'localhost:8080');
+app.set('frontHost', process.env.FRONT_HOST || 'http://localhost:8080');
 
 // Init express middlewares
 app.use(cors({credentials: true, origin: app.get('frontHost')}));
 
 // Init routes
 app.get('/', (req, res) => res.send('Hello world!'));
-app.use('/statistic', require('./src/backend/statistic/statistic.route'));
+app.use('/api/statistic', require('./src/backend/api/statistic/statistic.route'));
 
 // Init server
 app.listen(app.get('port'), app.get('host'), error => {
