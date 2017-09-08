@@ -1,4 +1,4 @@
-export interface StatisticPosition {
+export interface Position {
   epc: Number;
   date: string;
   accrued: Number;

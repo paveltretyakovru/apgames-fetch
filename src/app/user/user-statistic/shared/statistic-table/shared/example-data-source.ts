@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Observable';
 import { DataSource } from '@angular/cdk/collections';
 
-import { StatisticPosition as Element } from 'app/user/user-statistic/shared/models/StatisticPosition';
+import { Position as Element } from 'app/user/user-statistic/shared/models/Position';
 
 export class ExampleDataSource extends DataSource<any> {
 
