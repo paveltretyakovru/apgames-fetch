@@ -1,5 +1,6 @@
 const cors = require('cors');
 const notifier = require('node-notifier');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 // Init express application
@@ -13,6 +14,10 @@ app.set('frontHost', process.env.FRONT_HOST || 'http://localhost:8080');
 // Init express middlewares
 app.use(cors({credentials: true, origin: app.get('frontHost')}));
 app.use(bodyParser());
+
+// Init mongodb
+mongoose.connect('mongodb://localhost/apgames')
+mongoose.connection.once('open', () => console.log('Подключено к mongodb'))
 
 // Init routes
 app.get('/', (req, res) => res.send('Hello world!'));
