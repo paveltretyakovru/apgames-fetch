@@ -7,42 +7,43 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from "rxjs/Subject";
 import 'rxjs/add/operator/map';
 
-// Material components
-import {MdSnackBar} from '@angular/material';
-
+// Interfaces
 import { NewUser } from 'app/shared/models/new-user.model';
 import { AppState } from 'app/app-state.model';
-import { apiRoutes } from 'app/app-routing.module';
-import { AppActions } from 'app/app.actions';
-import { AdminActions } from 'app/admin/admin.actions';
 import { AdminState } from '../admin-state.model';
 import { AdminUser } from '../admin-users/admin-user.model';
+
+// Actions
+import { AdminActions } from 'app/admin/admin.actions';
+
+import { apiRoutes } from 'app/app-routing.module';
+import { PluginsService } from 'app/shared/plugins.service';
+
 
 @Injectable()
 export class AdminService {
   users$: Observable<AdminUser[]>;
 
   constructor(
-    public snackBar: MdSnackBar,
-
     private http: HttpClient,
     private store: Store<AppState>,
-    private router: Router
+    private router: Router,
+    private plugins: PluginsService,
   ) {}
 
   addUser(newUser: NewUser) {
-    this.showProgress();
+    this.plugins.showProgress();
 
     this.http.post(apiRoutes.addUser, newUser).subscribe(
       (response) => {
         this.store.dispatch({ type: AdminActions.ADD_USER, payload: response['user'] });
 
-        this.hideProgress();
-        this.showSnackBar(response['message']);
+        this.plugins.hideProgress();
+        this.plugins.showSnackBar(response['message']);
       },
       (error) => {
-        this.hideProgress();
-        this.showSnackBar(error['error']['message']);
+        this.plugins.hideProgress();
+        this.plugins.showSnackBar(error['error']['message']);
       }
     );
   }
@@ -59,40 +60,24 @@ export class AdminService {
   }
 
   loadUsers(): Observable<AdminUser[]> {
-    this.showProgress();
+    this.plugins.showProgress();
     let req = this.http.get<AdminUser[]>(apiRoutes.loadUsers);
     
     req.subscribe(
       response => {
         this.store.dispatch({type: AdminActions.SET_USERS, payload: response});
-        this.hideProgress();
+        this.plugins.hideProgress();
       },
       error => {
-        this.showSnackBar('Fetching data eror');
-        this.hideProgress();
+        this.plugins.showSnackBar('Fetching data eror');
+        this.plugins.hideProgress();
       }
     );
 
     return req;
   }
-
-  showProgress(): void {
-    this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: true });
-  }
-  
-  hideProgress(): void {
-    this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
-  }
   
   routeToUser(id: Number | string) {
     this.router.navigate([`/user/admin/users/${id}`]);
-  }
-
-  showSnackBar(
-    message: string,
-    action: any = 'close',
-    config: object = { duration: 2000 }
-  ): void {
-    if(message) this.snackBar.open(message, action, config);
   }
 }

@@ -1,8 +1,11 @@
+import { AdminUser } from './admin-users/admin-user.model';
 import { AdminState } from './admin-state.model';
 import { AdminActions } from './admin.actions';
 
+
 export const initState: AdminState = {
-  users: ['Some User'],
+  users: [({id: 1, login: 'test'})],
+  sources: [],
 }
 
 export const adminReducer = (

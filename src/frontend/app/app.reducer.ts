@@ -2,7 +2,7 @@ import { StoreActionModel } from './shared/models/store-action.model';
 import { AppActions } from './app.actions';
 
 export interface App {
-  progress: boolean;
+  progress: Boolean;
 }
 
 export type AppState = App;

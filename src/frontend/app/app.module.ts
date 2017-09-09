@@ -16,24 +16,33 @@ import {
   MdProgressBarModule,
 } from '@angular/material';
 
-// Self imports
+// Modules
 import { UserModule } from './user/user.module';
 import { TasksModule } from './tasks/tasks.module';
-import { AuthService } from './shared/auth.service';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./app-routing.module";
+
+// Reducers
 import { tasksReducer } from './tasks/tasks.reducer';
+import { reducers, storeInitState, metaReducers } from './reducers';
+
+// Components
+import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { AppRoutingModule } from "./app-routing.module";
-import { AuthGuardService } from './shared/auth-guard.service';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { reducers, storeInitState, metaReducers } from './reducers';
+import { RequestBarComponent } from './shared/request-bar.component';
+
+// Services
+import { AuthService } from './shared/auth.service';
+import { PluginsService } from './shared/plugins.service';
+import { AuthGuardService } from './shared/auth-guard.service';
 
 @NgModule({
   exports: [
     FormsModule,
     MdInputModule,
     BrowserModule,
+    MdSnackBarModule,
     MdProgressBarModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -73,12 +82,14 @@ import { reducers, storeInitState, metaReducers } from './reducers';
     HomeComponent,
     LoginComponent,
     NotFoundComponent,
+    RequestBarComponent,
   ],
 
   bootstrap: [ AppComponent ],
 
   providers: [
     AuthService,
+    PluginsService,
     AuthGuardService,
   ],
 })

@@ -1,9 +1,4 @@
-<div *ngIf="progress | async" id="progress-bar">
-  <md-progress-bar
-    mode="query">
-  </md-progress-bar>
-</div>
-
+<request-bar [app$]="app$"></request-bar>
 <main class="container-fluid">
 
   <!-- Toolbar  -->

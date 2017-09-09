@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 
 import { App } from './app.reducer';
+import { PluginsService } from './shared/plugins.service';
 import { AppState } from './app-state.model';
 import { UserService } from './user/user.service';
 
@@ -12,15 +13,21 @@ import { UserService } from './user/user.service';
   templateUrl: 'app.component.html', 
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
+  app$: Observable<App>;
   title: string = 'ApGames Fetch';
-  progress$: Observable<boolean>;
 
   constructor(
+    private store: Store<AppState>,
+    private plugins: PluginsService,
     private userService: UserService,
-    private store: Store<AppState>
   ) {
-    this.progress$ = store.select(state => state.app.progress);
+    console.log('CONSTRUCTOR APP');    
+  }
+  
+  ngOnInit() {
+    console.log('INIT APP');
+    this.app$ = this.store.select('app');
   }
 
   routeToProfile() {
