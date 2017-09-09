@@ -11,11 +11,13 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
-  @Input() users$: Observable<AdminUser[]>;
+  users$: Observable<AdminUser[]>;
 
   constructor(private service: AdminService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.users$ = this.service.getUsers();
+  }
 
   routeToUser(id: Number | string) {
     this.service.routeToUser(id);

@@ -31,24 +31,18 @@ export class AdminService {
   ) {}
 
   addUser(newUser: NewUser) {
-    this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: true });
+    this.showProgress();
+
     this.http.post(apiRoutes.addUser, newUser).subscribe(
       (response) => {
-        console.log('User was added', response);
         this.store.dispatch({ type: AdminActions.ADD_USER, payload: response['user'] });
-        this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
 
-        if(response['message']) {
-          this.snackBar.open(response['message'], 'close');
-        }
+        this.hideProgress();
+        this.showSnackBar(response['message']);
       },
       (error) => {
-        console.error('User adding is failure', error);
-        this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
-
-        if(error['error']['message']) {
-          this.snackBar.open(error['error']['message'], 'close');
-        }
+        this.hideProgress();
+        this.showSnackBar(error['error']['message']);
       }
     );
   }
@@ -57,7 +51,7 @@ export class AdminService {
     return this.store.select(state => {
       let index = state.admin.users.findIndex(el => el.id === id);
       return state.admin.users[index];
-    });    
+    });
   }
 
   getUsers(): Observable<AdminUser[]> {
@@ -97,8 +91,8 @@ export class AdminService {
   showSnackBar(
     message: string,
     action: any = 'close',
-    config: object = { duration: 500 }
+    config: object = { duration: 2000 }
   ): void {
-    this.snackBar.open(message, action);
+    if(message) this.snackBar.open(message, action, config);
   }
 }

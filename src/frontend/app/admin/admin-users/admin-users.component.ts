@@ -17,11 +17,9 @@ export class AdminUsersComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: AdminService,
-  ) { }
+  ) {}
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
-    this.user$ = this.service.getUser(id);
-    console.log('Geting user', id, this.user$);
+    this.user$ = this.service.getUser(this.route.snapshot.paramMap.get('id'));
   }
 };

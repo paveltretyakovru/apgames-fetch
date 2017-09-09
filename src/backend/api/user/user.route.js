@@ -40,10 +40,10 @@ router.post('/add', (req, res) => {
     let user = new User({login: login, password: password});
     
     console.log('Saving new user', user);
-    user.save((error) => {
+    user.save((error, model) => {
       if(!error) {
         return res.json({
-          user: { login: login },
+          user: { login: login, id: model._id },
           success: true,
           message: `User ${login} was added`,
         });
