@@ -26,12 +26,13 @@ export class UserAdminComponent implements OnInit {
 
     private store: Store<AppState>,
     private adminService: AdminService,
-  ) { }
+  ) {
+    this.adminService.loadUsers();
+  }
   
   ngOnInit() {
     this.userAdmin$ = this.store.select('userAdmin');
     this.userAdmin$.subscribe((userAdmin) => {
-      console.log('SEELECTED', userAdmin);
       this.users = userAdmin.users;
     });
   }

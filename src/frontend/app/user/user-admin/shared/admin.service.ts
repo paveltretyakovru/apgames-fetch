@@ -20,6 +20,7 @@ export class AdminService {
     this.http.post(apiRoutes.addUser, newUser).subscribe(
       (response) => {
         console.log('User was added', response);
+        this.store.dispatch({ type: UserAdminActions.ADD_USER, payload: response['user'] });
         this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
       },
       (error) => {
@@ -34,11 +35,11 @@ export class AdminService {
     this.http.get(apiRoutes.loadUsers).subscribe(
       (response) => {
         console.log('Users was loaded', response);
-        this.store.dispatch({ type: UserAdminActions.ADD_USER, payload: response });
+        this.store.dispatch({ type: UserAdminActions.SET_USERS, payload: response });
         this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
       },
       (error) => {
-        console.error('User adding is failure', error);
+        console.error('Users load is failure', error);
         this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
       }
     );

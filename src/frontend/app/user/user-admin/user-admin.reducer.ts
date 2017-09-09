@@ -13,9 +13,13 @@ export const userAdminReducer = (
   switch(action.type) {
     case UserAdminActions.ADD_USER: {
       let users = [...state.users];
-      users.push = action.payload;
+      users.push(action.payload);
 
       return { ...state, users: users };
+    }
+
+    case UserAdminActions.SET_USERS: {
+      return { ...state, users: action.payload } 
     }
 
     default: {

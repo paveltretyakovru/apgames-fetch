@@ -22,14 +22,15 @@ router.post('/login', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
-  const login = req.body.login || '';
-  const password = req.body.password || '';
+  let login = req.body.login || '';
+  let password = req.body.password || '';
 
   if(login && password) {
-    const user = new User({login: login, password: password});
+    let user = new User({login: login, password: password});
+    console.log('Adding new user', user);
     user.save((error) => {
       if(!error) {
-        return res.json({result: true});
+        return res.json({result: true, user: { login: login }});
       } else {
         errorAction(error);
         return res.status(500).json({result: false});
@@ -39,6 +40,16 @@ router.post('/add', (req, res) => {
     return res.status(500).json({message: 'Login failed', data: req.body});
   }
 
+});
+
+router.get('/list', (req, res) => {
+  User.find().lean().exec((err, users) => {
+    let usersList = [];
+    for(let i = 0; i < users.length; i++) {
+      usersList.push({login: users[i].login});
+    }
+    return res.json(usersList);
+  });
 });
 
 module.exports = router;
