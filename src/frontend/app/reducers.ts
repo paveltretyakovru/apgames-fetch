@@ -6,12 +6,14 @@ import { AppState } from './app-state.model';
 import { appReducer, initState as appInitState } from './app.reducer';
 import { userReducer, initState as userInitState } from './user/user.reducer';
 import { tasksReducer, initState as tasksInitState } from './tasks/tasks.reducer';
+import { userAdminReducer, initState as userAdminInitState } from './user/user-admin/user-admin.reducer';
 
 // Full initial state
 export const storeInitState: AppState = {
   app: appInitState,
   user: userInitState,
   tasks: tasksInitState,
+  userAdmin: userAdminInitState,
 };
 
 // Meta reducers
@@ -23,5 +25,6 @@ export const metaReducers:Array<any> = [
 export const reducers: ActionReducerMap<AppState> = {
   app: appReducer,
   user: userReducer,
-  tasks: tasksReducer,  
+  tasks: tasksReducer,
+  userAdmin: userAdminReducer,
 };

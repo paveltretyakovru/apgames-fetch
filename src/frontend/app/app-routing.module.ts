@@ -12,16 +12,13 @@ const serverHost = 'http://localhost:3002';
 export const apiRoutes = {
   login: `${serverHost}/api/user/login`,
   addUser: `${serverHost}/api/user/add`,
+  loadUsers: `${serverHost}/api/user/list`,
 };
 
 const appRoutes: Routes = [
   {
     path: '',
     component: HomeComponent
-  },
-  {
-    path: 'tasks',
-    children: TasksRouting,
   },
   {
     path: 'user',
