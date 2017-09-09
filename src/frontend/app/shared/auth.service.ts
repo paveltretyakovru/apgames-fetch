@@ -6,12 +6,9 @@ import { HttpClient } from '@angular/common/http';
 
 import { AppState } from 'app/app-state.model';
 import { AuthData } from 'app/shared/models/auth-data.model';
+import { apiRoutes } from 'app//app-routing.module';
 import { AppActions } from 'app/app.actions';
 import { UserActions } from 'app/user/user.actions';
-
-const authRoutes = {
-  login: 'http://localhost:3002/api/user/login',
-};
 
 @Injectable()
 export class AuthService {
@@ -29,7 +26,7 @@ export class AuthService {
     : any {
       this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: true });
 
-      return this.http.post(authRoutes.login, options.authData).subscribe(
+      return this.http.post(apiRoutes.login, options.authData).subscribe(
         
         // Login is success
         (response: any) => {

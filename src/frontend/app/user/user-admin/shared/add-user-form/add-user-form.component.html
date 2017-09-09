@@ -1,0 +1,50 @@
+<div class="add-user-form">
+  <p class="title">New user</p>
+  <form [formGroup]="addUserForm" #formDir="ngForm" (ngSubmit)="onAddClick()">
+
+    <md-input-container class="add-user-form__input-container">
+      <input
+        mdInput
+        placeholder="Login"
+        formControlName="login"
+        [(ngModel)]="data.login"
+        required>
+
+      <div *ngIf="login.invalid && (login.dirty || login.touched)">
+        <md-error *ngIf="login.errors.required">
+          Login is required.
+        </md-error>
+        <md-error *ngIf="login.errors.minlength">
+          Login must be at least 4 characters long.
+        </md-error>
+      </div>
+    </md-input-container>
+
+    <md-input-container class="add-user-form__input-container">
+      <input
+        mdInput
+        placeholder="Password"
+        formControlName="password"
+        [(ngModel)]="data.password"
+        required>
+
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+          <md-error *ngIf="password.errors.required">
+            Password is required.
+          </md-error>
+          <md-error *ngIf="password.errors.minlength">
+            Password must be at least 4 characters long.
+          </md-error>
+        </div>
+    </md-input-container>
+
+    <div>
+      <button
+        md-raised-button
+        type="submit"
+        [disabled]="addUserForm.invalid">
+        Add
+      </button>
+    </div>
+  </form>
+</div>

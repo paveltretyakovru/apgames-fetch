@@ -16,8 +16,8 @@ app.use(cors({credentials: true, origin: app.get('frontHost')}));
 app.use(bodyParser());
 
 // Init mongodb
-mongoose.connect('mongodb://localhost/apgames')
-mongoose.connection.once('open', () => console.log('Подключено к mongodb'))
+mongoose.connect('mongodb://localhost/apgames', { useMongoClient: true });
+mongoose.connection.once('open', () => console.log('Подключено к mongodb'));
 
 // Init routes
 app.get('/', (req, res) => res.send('Hello world!'));
