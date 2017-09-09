@@ -1,5 +1,8 @@
+
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, Input } from '@angular/core';
+
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'users-list',
@@ -8,9 +11,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UsersListComponent implements OnInit {
   @Input() users: any[];
-  typesOfShoes = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
 
-  constructor() { }
+  constructor(
+    private service: AdminService
+  ) { }
 
   ngOnInit() { }
+
+  routeToUser(id: Number | string) {
+    this.service.routeToUser(id);
+  }
 };

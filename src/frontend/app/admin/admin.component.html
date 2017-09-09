@@ -1,24 +1,5 @@
 <div class="row">
   <div class="col-xs-12">
-    <div class="row">
-      <div class="col-xs-12">
-        <md-card class="admin-users-list">
-
-          <md-card-header>
-            <md-card-title class="title">Users</md-card-title>
-            <md-card-subtitle>Click on the user names for details</md-card-subtitle>
-          </md-card-header>
-
-          <md-card-content>
-            <users-list [users]="users"></users-list>
-          </md-card-content>
-
-          <md-card-actions>
-            <button md-button (click)="openAddUserDialog()">Add User</button>
-          </md-card-actions>
-        </md-card>
-      </div>
-    </div>
-
+    <router-outlet></router-outlet>
   </div>
 </div>

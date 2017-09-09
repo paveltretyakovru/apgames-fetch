@@ -13,16 +13,20 @@ import {
 } from "@angular/material";
 
 import { AdminService } from './shared/admin.service';
-import { UsersListComponent } from './shared/users-list/users-list.component';
 import { AdminComponent } from './admin.component';
-import { AddUserFormComponent } from './shared/add-user-form/add-user-form.component';
+import { UsersListComponent } from './shared/users-list/users-list.component';
 import { AdminRoutingModule } from './admin-routing.module';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AddUserFormComponent } from './shared/add-user-form/add-user-form.component';
+import { AdminDashBoardComponent } from './shared/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
-    UsersListComponent,
     AdminComponent,
+    UsersListComponent,
+    AdminUsersComponent,
     AddUserFormComponent,
+    AdminDashBoardComponent,
   ],
   imports: [
     // Andular modules

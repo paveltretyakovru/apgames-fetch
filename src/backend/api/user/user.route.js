@@ -66,7 +66,10 @@ router.get('/list', (req, res) => {
   User.find().lean().exec((err, users) => {
     let usersList = [];
     for(let i = 0; i < users.length; i++) {
-      usersList.push({login: users[i].login});
+      usersList.push({
+        id: users[i]._id,
+        login: users[i].login,
+      });
     }
     return res.json(usersList);
   });

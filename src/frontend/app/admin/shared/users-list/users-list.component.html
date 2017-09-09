@@ -1,6 +1,6 @@
-<div class="admin-users-list">
+<div class="users-list">
   <md-nav-list>
-    <md-list-item *ngFor="let user of users">
+    <md-list-item *ngFor="let user of users" (click)="routeToUser(user.id)">
       <md-icon md-list-icon>account_box</md-icon>
       {{user.login}}
     </md-list-item>

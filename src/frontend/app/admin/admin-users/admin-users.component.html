@@ -1,0 +1,6 @@
+<md-card class="admin-users-component" *ngIf="user$ | async as user">
+  <md-card-header>
+    <md-card-title class="title">User {{ user.login }}</md-card-title>
+    <md-card-subtitle>{{ user.id }}</md-card-subtitle>
+  </md-card-header>
+</md-card>
