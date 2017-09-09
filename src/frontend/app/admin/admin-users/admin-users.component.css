@@ -1,3 +1,4 @@
-.admin-users-component {
-  margin-top: 16px;
-}
+.admin-users-component { margin-top: 16px;}
+.admin-users-component.mat-card { padding-bottom: 8px; }
+
+.admin-users-sources { margin-top: 8px; }

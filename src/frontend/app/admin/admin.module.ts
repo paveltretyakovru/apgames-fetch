@@ -17,6 +17,7 @@ import { AdminComponent } from './admin.component';
 import { UsersListComponent } from './shared/users-list/users-list.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { SourcesListComponent } from './shared/sources-list/sources-list.component';
 import { AddUserFormComponent } from './shared/add-user-form/add-user-form.component';
 import { AdminDashBoardComponent } from './shared/admin-dashboard/admin-dashboard.component';
 
@@ -25,6 +26,7 @@ import { AdminDashBoardComponent } from './shared/admin-dashboard/admin-dashboar
     AdminComponent,
     UsersListComponent,
     AdminUsersComponent,
+    SourcesListComponent,
     AddUserFormComponent,
     AdminDashBoardComponent,
   ],

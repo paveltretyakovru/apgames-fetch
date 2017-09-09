@@ -1,6 +1,21 @@
-<md-card class="admin-users-component" *ngIf="user$ | async as user">
-  <md-card-header>
-    <md-card-title class="title">User {{ user.login }}</md-card-title>
-    <md-card-subtitle>{{ user.id }}</md-card-subtitle>
-  </md-card-header>
-</md-card>
+<div>
+  <md-card class="admin-users-component" *ngIf="user$ | async as user">
+    <md-card-header>
+      <md-card-title>{{ user.login | uppercase }}</md-card-title>
+      <md-card-subtitle>id: {{ user.id }}</md-card-subtitle>
+    </md-card-header>
+  </md-card>
+
+  <md-card class="admin-users-sources">
+    <md-card-header>
+      <md-card-title>Sources</md-card-title>
+      <md-card-subtitle>Select user access sources</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+
+      <!-- Sources list -->
+      <sources-list></sources-list>
+      
+    </md-card-content>
+  </md-card>
+</div>
