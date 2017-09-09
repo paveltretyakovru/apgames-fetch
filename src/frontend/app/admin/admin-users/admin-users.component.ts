@@ -22,5 +22,6 @@ export class AdminUsersComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
     this.user$ = this.service.getUser(id);
+    console.log('Geting user', id, this.user$);
   }
 };

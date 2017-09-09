@@ -1,8 +1,12 @@
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 
 import { MdDialog } from '@angular/material';
 
 import { NewUser } from 'app/shared/models/new-user.model';
+import { AppState } from 'app/app-state.model';
+import { AdminUser } from '../../admin-users/admin-user.model';
 import { AdminState } from '../../admin-state.model';
 import { AdminService } from '../admin.service';
 import { AddUserFormComponent } from '../add-user-form/add-user-form.component';
@@ -12,20 +16,16 @@ import { AddUserFormComponent } from '../add-user-form/add-user-form.component';
   styleUrls: ['./admin-dashboard.component.css'],
 })
 export class AdminDashBoardComponent implements OnInit {
-  users: any[];
   newUser: NewUser = { login: '', password: '' };
+  users$: Observable<AdminUser[]>;
 
   constructor(
     public dialog: MdDialog,
-    private adminService: AdminService,
-  ) {
-    this.adminService.loadUsers();
-  }
+    private adminService: AdminService
+  ) {}
 
   ngOnInit() {
-    this.adminService.admin$.subscribe((adminState) => {
-      this.users = adminState.users;
-    });
+    this.users$ = this.adminService.loadUsers();
   }
 
   openAddUserDialog(): void {
@@ -37,7 +37,6 @@ export class AdminDashBoardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
-      console.log('After closed', result);
       if(result) {
         this.adminService.addUser(this.newUser);
       }

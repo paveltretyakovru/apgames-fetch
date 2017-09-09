@@ -2,6 +2,7 @@
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit, Input } from '@angular/core';
 
+import { AdminUser } from '../../admin-users/admin-user.model';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -10,11 +11,9 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent implements OnInit {
-  @Input() users: any[];
+  @Input() users$: Observable<AdminUser[]>;
 
-  constructor(
-    private service: AdminService
-  ) { }
+  constructor(private service: AdminService) { }
 
   ngOnInit() { }
 

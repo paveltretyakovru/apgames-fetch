@@ -1,9 +1,10 @@
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpEvent, HttpEventType } from '@angular/common/http';
 
+import { Observable } from 'rxjs/Observable';
+import { Subject } from "rxjs/Subject";
 import 'rxjs/add/operator/map';
 
 // Material components
@@ -19,8 +20,7 @@ import { AdminUser } from '../admin-users/admin-user.model';
 
 @Injectable()
 export class AdminService {
-  admin$: Observable<AdminState>;
-  users: any[];
+  users$: Observable<AdminUser[]>;
 
   constructor(
     public snackBar: MdSnackBar,
@@ -28,13 +28,7 @@ export class AdminService {
     private http: HttpClient,
     private store: Store<AppState>,
     private router: Router
-  ) {
-
-    this.admin$ = store.select('admin');
-    this.admin$.subscribe((adminState) => {
-      this.users = adminState.users;
-    });
-  }
+  ) {}
 
   addUser(newUser: NewUser) {
     this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: true });
@@ -59,26 +53,52 @@ export class AdminService {
     );
   }
 
-  loadUsers() {
-    this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: true });
-    return this.http.get(apiRoutes.loadUsers).subscribe(
-      (response) => {
-        console.log('Users was loaded', response);
-        this.store.dispatch({ type: AdminActions.SET_USERS, payload: response });
-        this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
+  getUser(id: string): Observable<AdminUser> {
+    return this.store.select(state => {
+      let index = state.admin.users.findIndex(el => el.id === id);
+      return state.admin.users[index];
+    });    
+  }
+
+  getUsers(): Observable<AdminUser[]> {
+    return this.store.select(state => state.admin.users);
+  }
+
+  loadUsers(): Observable<AdminUser[]> {
+    this.showProgress();
+    let req = this.http.get<AdminUser[]>(apiRoutes.loadUsers);
+    
+    req.subscribe(
+      response => {
+        this.store.dispatch({type: AdminActions.SET_USERS, payload: response});
+        this.hideProgress();
       },
-      (error) => {
-        console.error('Users load is failure', error);
-        this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
+      error => {
+        this.showSnackBar('Fetching data eror');
+        this.hideProgress();
       }
     );
+
+    return req;
   }
 
-  getUser(id: number | string): Observable<AdminUser> {
-    return this.http.get(apiRoutes.loadUsers).map((users: any[]) => users.find((user) => user.id === id));
+  showProgress(): void {
+    this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: true });
   }
-
+  
+  hideProgress(): void {
+    this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
+  }
+  
   routeToUser(id: Number | string) {
     this.router.navigate([`/user/admin/users/${id}`]);
+  }
+
+  showSnackBar(
+    message: string,
+    action: any = 'close',
+    config: object = { duration: 500 }
+  ): void {
+    this.snackBar.open(message, action);
   }
 }

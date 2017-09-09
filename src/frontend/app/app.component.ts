@@ -14,18 +14,13 @@ import { UserService } from './user/user.service';
 
 export class AppComponent {
   title: string = 'ApGames Fetch';
-  appState$: Observable<any>;
-  progress: boolean;
+  progress$: Observable<boolean>;
 
   constructor(
     private userService: UserService,
     private store: Store<AppState>
   ) {
-    this.appState$ = store.select('app');
-
-    this.appState$.subscribe((appState: App) => {
-      this.progress = appState.progress;
-    });
+    this.progress$ = store.select(state => state.app.progress);
   }
 
   routeToProfile() {
