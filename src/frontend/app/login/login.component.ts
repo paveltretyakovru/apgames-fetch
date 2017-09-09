@@ -31,8 +31,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): any {
     this.authService.login({
-      failed: (result: boolean) => { console.error('Failed', result) },
-      success: (result: boolean) => { console.info('Success', result) },
       authData: this.authData,
     }).subscribe((result: boolean) => {
       console.info('Obser completed', result);
