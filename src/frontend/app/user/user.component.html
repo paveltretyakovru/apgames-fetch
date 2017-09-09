@@ -1,9 +1,9 @@
 <div id="user-profile-wrapper">
 
   <!-- Navigation tab bar  -->
-  <md-card id="user-profile-card">
-    <div class="row">
-      <div class="col-xs">
+  <div class="row">
+    <div class="col-xs">
+      <!-- <md-card id="user-profile-card"> -->
         <nav md-tab-nav-bar>
           <a md-tab-link
             *ngFor="let navRoute of navRoutes"
@@ -15,10 +15,10 @@
             {{navRoute.label}}
           </a>
         </nav>
-      </div>
-    </div> 
+      <!-- </md-card> -->
+    </div>
+  </div> 
 
-    <router-outlet></router-outlet>
-  </md-card>
+  <router-outlet></router-outlet>
 
 </div>

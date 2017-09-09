@@ -1,5 +1,8 @@
 <div class="admin-users-list">
   <md-nav-list>
-    <md-list-item *ngFor="let user of users">{{user.login}}</md-list-item>
+    <md-list-item *ngFor="let user of users">
+      <md-icon md-list-icon>account_box</md-icon>
+      {{user.login}}
+    </md-list-item>
   </md-nav-list>
 </div>

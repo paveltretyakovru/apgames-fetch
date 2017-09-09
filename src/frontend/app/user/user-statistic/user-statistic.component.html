@@ -1,53 +1,61 @@
-<div id="user-profile-statistic-wrapper">
-
-  <div id="statistic-filters-wrapper">
-    <div class="row center-xs">
-      <div class="col-xs-12">
-        <p class="title">
-          User profile statistic
-        </p>
-      </div>
-    </div>
-    
-    <div class="row">
-      <!--  Period start  -->
-      <div class="col-xs-12 col-sm-3 col-md-3">
-        <!-- datepicker  -->
-        <datepicker placeholder="Choose a date start"></datepicker>
-      </div>
-
-      <!--  Period end  -->
-      <div class="col-xs-12 col-sm-3 col-md-3">
-        <!-- datepicker -->
-        <datepicker placeholder="Choose a date end"></datepicker>
-      </div>
-
-      <!--  Period end  -->
-      <div class="col-xs-12 col-sm-3 col-md-3" id="statistic-grouping-wrapper">
-        <form>
-          <md-select placeholder="Grouping" [(ngModel)]="selectedValue" name="source">
-            <md-option *ngFor="let source of sources" [value]="source.value">
-              {{source.viewValue}}
-            </md-option>
-          </md-select>
-        </form>
-      </div>
-
-      <!--  Button go  -->
-      <div class="col-xs-12 col-sm-3 col-md-3" id="statistic-go-button-wrapper">
-        <button md-raised-button color="accent">LET'S GO!</button>
-      </div>
-
-
-    </div> 
-    <!-- /.row  -->
-
+<div class="user-statistic">
+  
   <div class="row">
     <div class="col-xs-12">
-      
-      <statistic-table></statistic-table>
+      <md-card>
 
+        <md-card-header>
+          <md-card-title class="title">Filters</md-card-title>
+          <md-card-subtitle>Check filters and press button</md-card-subtitle>
+        </md-card-header>
+
+        <div class="row">
+          <!--  Period start  -->
+          <div class="col-xs-12 col-sm-3 col-md-3">
+            <!-- datepicker  -->
+            <datepicker placeholder="Choose a date start" class="user-statistic__datepicker"></datepicker>
+          </div>
+      
+          <!--  Period end  -->
+          <div class="col-xs-12 col-sm-3 col-md-3">
+            <!-- datepicker -->
+            <datepicker placeholder="Choose a date end" class="user-statistic__datepicker"></datepicker>
+          </div>
+      
+          <!--  Period end  -->
+          <div class="col-xs-12 col-sm-3 col-md-3" id="statistic-grouping-wrapper">
+            <form>
+              <md-select placeholder="Grouping" [(ngModel)]="selectedValue" name="source">
+                <md-option *ngFor="let source of sources" [value]="source.value">
+                  {{source.viewValue}}
+                </md-option>
+              </md-select>
+            </form>
+          </div>
+      
+          <!--  Button go  -->
+          <div class="col-xs-12 col-sm-3 col-md-3" id="statistic-go-button-wrapper">
+            <button md-raised-button color="accent">LET'S GO!</button>
+          </div>
+
+        </div>
+        <!-- row -->
+
+      </md-card> 
+    </div>
+    <!-- /col-xs-12 -->
+
+  </div>
+  <!-- /.row  -->
+
+  <div class="user-statistic__table">
+    <div class="row">
+      <div class="col-xs-12">
+        <md-card>
+          <statistic-table></statistic-table>
+        </md-card>
+      </div>
     </div>
   </div>
-  </div>
+
 </div>

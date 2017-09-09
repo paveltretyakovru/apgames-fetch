@@ -4,20 +4,31 @@ const router = express.Router();
 const errorAction = require('../shared/errorAction');
 
 router.post('/login', (req, res) => {
-  const login = req.body.login;
-  const password = req.body.password;
 
-  console.log('Req body', req.body);
+  const login = req.body.login || '';
+  const password = req.body.password || '';
 
-  if(login && password) {
-    if(login === 'admin' && password === '1234') {
-      return res.json(req.body);
+  const query = User.where({name: login});
+  query.findOne((err, user) => {
+    if (err) console.log('Error:', err);
+
+    // Если пользователь найден
+    if (user) {
+      // Если логин и пароль верны
+      if(user.authenticate(password)) {
+        console.log('Successfull user login', user.id);
+
+        res.json({success: true, message: 'Authenticate is success'});
+      } else {
+        console.log(`Unsuccessfull auth. Login: ${login}, pass: ${password}`);
+        res.status(500).json({success: false, message: 'Invalid login or password'});
+      }
     } else {
-      return res.status(500).json({message: 'Login admin failed', data: req.body});
+      console.log(`Unsuccessfull auth. Login: ${login}, pass: ${password}`);
+      res.status(500).json({success: false, message: 'Invalid login or password'});
     }
-  } else {
-    return res.status(500).json({message: 'Login failed', data: req.body});
-  }
+
+  });
 
 });
 
@@ -27,17 +38,26 @@ router.post('/add', (req, res) => {
 
   if(login && password) {
     let user = new User({login: login, password: password});
-    console.log('Adding new user', user);
+    
+    console.log('Saving new user', user);
     user.save((error) => {
       if(!error) {
-        return res.json({result: true, user: { login: login }});
+        return res.json({
+          user: { login: login },
+          success: true,
+          message: `User ${login} was added`,
+        });
       } else {
-        errorAction(error);
-        return res.status(500).json({result: false});
+        errorAction(error).catch((errorDump) => {
+          return res.status(500).json({
+            success: false,
+            message: `Ошибка во время выполнения запроса. ${errorDump}`,
+          });  
+        });
       }
     });
   } else {
-    return res.status(500).json({message: 'Login failed', data: req.body});
+    return res.status(500).json({success: false, message: 'All inputs required'});
   }
 
 });

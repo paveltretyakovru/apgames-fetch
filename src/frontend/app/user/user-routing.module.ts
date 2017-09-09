@@ -16,6 +16,11 @@ export const userRouting: Routes = [
     
     children: [
       {
+        path: '',
+        canLoad: [ AuthGuardService ],
+        loadChildren: './user-admin/user-admin.module#UserAdminModule',
+      },
+      {
         path: 'tasks',
         component: TasksComponent,
       },
@@ -26,11 +31,6 @@ export const userRouting: Routes = [
       {
         path: 'profile',
         component: UserProfileComponent,
-      },
-      {
-        path: 'admin',
-        canLoad: [ AuthGuardService ],
-        loadChildren: './user-admin/user-admin.module#UserAdminModule',
       },
     ],
   },

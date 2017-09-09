@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
+  MdCardModule,  
   MdListModule,
+  MdIconModule,
   MdInputModule,
   MdButtonModule,
   MdDialogModule,
+  MdSnackBarModule,
 } from "@angular/material";
 
 import { AdminService } from './shared/admin.service';
@@ -31,10 +34,13 @@ import { UserAdminRoutingModule } from './user-admin-routing.module';
     UserAdminRoutingModule,
 
     // Material modules
+    MdCardModule,
     MdListModule,
+    MdIconModule,
+    MdInputModule,
     MdButtonModule,
     MdDialogModule,
-    MdInputModule,
+    MdSnackBarModule,
   ],
   entryComponents: [ AddUserFormComponent ],
   providers: [ AdminService ],

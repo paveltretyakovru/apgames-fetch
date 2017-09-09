@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 
+// Material components
+import {MdSnackBar} from '@angular/material';
+
 import { AppState } from 'app/app-state.model';
 import { AuthData } from 'app/shared/models/auth-data.model';
 import { apiRoutes } from 'app//app-routing.module';
@@ -13,6 +16,8 @@ import { UserActions } from 'app/user/user.actions';
 @Injectable()
 export class AuthService {
   constructor(
+    public snackBar: MdSnackBar,
+
     private http: HttpClient,
     private store: Store<AppState>,
     private router: Router,
@@ -34,12 +39,20 @@ export class AuthService {
           this.store.dispatch({ type: UserActions.SET_USER_AUTH, payload: true });
           this.router.navigate(['user/statistic']);
           this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
+
+          if(response['message']) {
+            this.snackBar.open(response['message'], 'close');
+          }
         },
 
         // Login is failure
         (error: any) => {
           console.error('Login is failure', error);
           this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: false });
+
+          if(error['error']['message']) {
+            this.snackBar.open(error['error']['message'], 'close');
+          }
         }
       );
     }

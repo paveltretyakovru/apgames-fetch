@@ -6,7 +6,7 @@ import { UserAdminComponent } from './user-admin.component';
 
 const userAdminRoutes: Routes = [
   {
-    path: '',
+    path: 'admin',
     component: UserAdminComponent,
   }
 ];

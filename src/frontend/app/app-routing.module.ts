@@ -17,8 +17,8 @@ export const apiRoutes = {
 
 const appRoutes: Routes = [
   {
-    path: '',
-    component: HomeComponent
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: 'user',
@@ -29,6 +29,8 @@ const appRoutes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
+
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   // 404
   { path: '**', component: NotFoundComponent }
