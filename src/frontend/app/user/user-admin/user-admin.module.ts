@@ -13,7 +13,5 @@ import { UserAdminRoutingModule } from './user-admin-routing.module';
     // Self modules
     UserAdminRoutingModule
   ],
-  exports: [],
-  providers: [],
 })
 export class UserAdminModule {};

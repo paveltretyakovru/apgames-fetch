@@ -6,17 +6,13 @@ import { UserAdminComponent } from './user-admin.component';
 
 const userAdminRoutes: Routes = [
   {
-    path: 'admin',
-    children: [
-      {
-        path: '',
-        component: UserAdminComponent,
-      }
-    ],
+    path: '',
+    component: UserAdminComponent,
   }
 ];
 
 @NgModule({
   imports: [ CommonModule, RouterModule.forChild(userAdminRoutes) ],
+  exports: [ RouterModule ],
 })
 export class UserAdminRoutingModule {};
