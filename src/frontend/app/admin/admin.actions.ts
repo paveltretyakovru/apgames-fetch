@@ -21,4 +21,12 @@ export class AdminActions {
     }
   }
 
+  static SET_SOURCES = 'SET_SOURCES';
+  setSources(value: any[]): Action {
+    return {
+      type: AdminActions.SET_SOURCES,
+      payload: value,
+    }
+  }
+
 }

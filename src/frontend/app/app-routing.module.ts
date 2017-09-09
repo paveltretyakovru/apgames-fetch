@@ -9,10 +9,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const serverHost = 'http://localhost:3002';
 
-export const apiRoutes = {
+export const apiRoutes: any = {
+
+  // Users
   login: `${serverHost}/api/user/login`,
   addUser: `${serverHost}/api/user/add`,
   loadUsers: `${serverHost}/api/user/list`,
+
+  // Sources
+  loadSources: `${serverHost}/api/sources`,
 };
 
 const appRoutes: Routes = [

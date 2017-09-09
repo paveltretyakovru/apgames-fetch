@@ -12,10 +12,13 @@ import {
   MdSnackBarModule,
 } from "@angular/material";
 
+import { AdminRoutingModule } from './admin-routing.module';
+
 import { AdminService } from './shared/admin.service';
+import { AdminUsersService } from './admin-users/admin-users.service';
+
 import { AdminComponent } from './admin.component';
 import { UsersListComponent } from './shared/users-list/users-list.component';
-import { AdminRoutingModule } from './admin-routing.module';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { SourcesListComponent } from './shared/sources-list/sources-list.component';
 import { AddUserFormComponent } from './shared/add-user-form/add-user-form.component';
@@ -49,6 +52,6 @@ import { AdminDashBoardComponent } from './shared/admin-dashboard/admin-dashboar
     MdSnackBarModule,
   ],
   entryComponents: [ AddUserFormComponent ],
-  providers: [ AdminService ],
+  providers: [ AdminService, AdminUsersService ],
 })
 export class AdminModule {};

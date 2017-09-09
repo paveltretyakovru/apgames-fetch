@@ -5,6 +5,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { AdminUser } from './admin-user.model';
 import { AdminService } from '../shared/admin.service';
+import { AdminUsersService } from './admin-users.service';
 
 @Component({
   selector: '',
@@ -17,9 +18,10 @@ export class AdminUsersComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: AdminService,
+    private usersService: AdminUsersService
   ) {}
 
   ngOnInit() {
-    this.user$ = this.service.getUser(this.route.snapshot.paramMap.get('id'));
+    this.user$ = this.usersService.getUser(this.route.snapshot.paramMap.get('id'));
   }
 };

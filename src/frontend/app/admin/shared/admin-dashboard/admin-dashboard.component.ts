@@ -7,7 +7,7 @@ import { MdDialog } from '@angular/material';
 import { NewUser } from 'app/shared/models/new-user.model';
 import { AdminUser } from '../../admin-users/admin-user.model';
 import { AdminState } from '../../admin-state.model';
-import { AdminService } from '../admin.service';
+import { AdminUsersService } from '../../admin-users/admin-users.service';
 import { AddUserFormComponent } from '../add-user-form/add-user-form.component';
 
 @Component({
@@ -19,7 +19,7 @@ export class AdminDashBoardComponent implements OnInit {
 
   constructor(
     public dialog: MdDialog,
-    private adminService: AdminService
+    private usersService: AdminUsersService
   ) {}
 
   ngOnInit() {}
@@ -34,7 +34,7 @@ export class AdminDashBoardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if(result) {
-        this.adminService.addUser(this.newUser);
+        this.usersService.addUser(this.newUser);
       }
     });
   }
