@@ -1,24 +1,24 @@
-import { UserAdminState } from './user-admin-state.model';
-import { UserAdminActions } from './user-admin.actions';
+import { AdminState } from './admin-state.model';
+import { AdminActions } from './admin.actions';
 
-export const initState: UserAdminState = {
+export const initState: AdminState = {
   users: ['Some User'],
 }
 
-export const userAdminReducer = (
+export const adminReducer = (
   state = initState,
   action: { type: string, payload: any }
-): UserAdminState => {
+): AdminState => {
 
   switch(action.type) {
-    case UserAdminActions.ADD_USER: {
+    case AdminActions.ADD_USER: {
       let users = [...state.users];
       users.push(action.payload);
 
       return { ...state, users: users };
     }
 
-    case UserAdminActions.SET_USERS: {
+    case AdminActions.SET_USERS: {
       return { ...state, users: action.payload } 
     }
 

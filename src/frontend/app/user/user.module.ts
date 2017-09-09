@@ -8,7 +8,7 @@ import { UserService } from './user.service';
 import { TasksModule } from 'app/tasks/tasks.module';
 import { UserComponent } from './user.component';
 import { MdButtonModule } from "@angular/material";
-import { UserAdminModule } from './user-admin/user-admin.module';
+import { AdminModule } from 'app/admin/admin.module';
 import { UserRoutingModule } from './user-routing.module';
 import { UserStatisticModule } from './user-statistic/user-statistic.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -25,7 +25,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 
     // Self modules
     TasksModule,
-    UserAdminModule,
+    AdminModule,
     UserRoutingModule,
     UserStatisticModule,
     

@@ -18,7 +18,7 @@ export const userRouting: Routes = [
       {
         path: '',
         canLoad: [ AuthGuardService ],
-        loadChildren: './user-admin/user-admin.module#UserAdminModule',
+        loadChildren: 'app/admin/admin.module#AdminModule',
       },
       {
         path: 'tasks',

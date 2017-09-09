@@ -14,14 +14,14 @@ import {
 
 import { AdminService } from './shared/admin.service';
 import { UsersListComponent } from './shared/users-list/users-list.component';
-import { UserAdminComponent } from './user-admin.component';
+import { AdminComponent } from './admin.component';
 import { AddUserFormComponent } from './shared/add-user-form/add-user-form.component';
-import { UserAdminRoutingModule } from './user-admin-routing.module';
+import { AdminRoutingModule } from './admin-routing.module';
 
 @NgModule({
   declarations: [
     UsersListComponent,
-    UserAdminComponent,
+    AdminComponent,
     AddUserFormComponent,
   ],
   imports: [
@@ -31,7 +31,7 @@ import { UserAdminRoutingModule } from './user-admin-routing.module';
     ReactiveFormsModule,
     
     // Self modules
-    UserAdminRoutingModule,
+    AdminRoutingModule,
 
     // Material modules
     MdCardModule,
@@ -45,4 +45,4 @@ import { UserAdminRoutingModule } from './user-admin-routing.module';
   entryComponents: [ AddUserFormComponent ],
   providers: [ AdminService ],
 })
-export class UserAdminModule {};
+export class AdminModule {};

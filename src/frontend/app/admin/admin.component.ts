@@ -6,20 +6,19 @@ import { Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
 // Self components
-import { User } from '../user.model';
 import { NewUser } from 'app/shared/models//new-user.model';
 import { AppState } from 'app/app-state.model';
 import { AdminService } from './shared/admin.service';
 import { AddUserFormComponent } from './shared/add-user-form/add-user-form.component';
 
 @Component({
-  templateUrl: './user-admin.component.html',
-  styleUrls: ['./user-admin.component.css']
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class UserAdminComponent implements OnInit {
+export class AdminComponent implements OnInit {
   users: any[];
   newUser: NewUser = { login: '', password: '' };
-  userAdmin$: Observable<any>;
+  admin$: Observable<any>;
 
   constructor(
     public dialog: MdDialog,
@@ -31,9 +30,9 @@ export class UserAdminComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.userAdmin$ = this.store.select('userAdmin');
-    this.userAdmin$.subscribe((userAdmin) => {
-      this.users = userAdmin.users;
+    this.admin$ = this.store.select('admin');
+    this.admin$.subscribe((adminState) => {
+      this.users = adminState.users;
     });
   }
 
