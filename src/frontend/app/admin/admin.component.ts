@@ -17,6 +17,9 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     
     // Fetch users
-    this.userService.loadUsers();
+    this.service.loadAdminState();
   }
 }
+
+// ==================================================
+// this.userService.loadUsers(); // For load all users
