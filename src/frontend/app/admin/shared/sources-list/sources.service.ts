@@ -19,7 +19,7 @@ export class SourcesService {
     private plugins: PluginsService
   ) {}
 
-  getSources() {
+  getSources(): Observable<Source[]> {
     return this.store.select(s => s.admin.sources);
   }
 

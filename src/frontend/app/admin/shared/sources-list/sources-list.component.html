@@ -1,7 +1,13 @@
-<div class="sources-list-component">
-  <md-selection-list #shoes>
-    <md-list-option *ngFor="let shoe of typesOfShoes">
-      {{shoe}}
+<div>
+  <md-selection-list>
+    <md-list-option
+      class="list-item"
+      [value]="source.id"
+      [disabled]="source.selected"
+      (selectChange)="selectedItem($event)"
+      (deselected)="deselectedItem($event)"
+      *ngFor="let source of sources">
+      <h4>{{source.name}}</h4>
     </md-list-option>
   </md-selection-list>
 </div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {
   MdCardModule,  
@@ -9,12 +10,15 @@ import {
   MdInputModule,
   MdButtonModule,
   MdDialogModule,
+  MdGridListModule,
   MdSnackBarModule,
+  MdCheckboxModule,
 } from "@angular/material";
 
 import { AdminRoutingModule } from './admin-routing.module';
 
 import { AdminService } from './shared/admin.service';
+import { SourcesService } from './shared/sources-list/sources.service';
 import { AdminUsersService } from './admin-users/admin-users.service';
 
 import { AdminComponent } from './admin.component';
@@ -35,8 +39,8 @@ import { AdminDashBoardComponent } from './shared/admin-dashboard/admin-dashboar
   ],
   imports: [
     // Andular modules
-    CommonModule,
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
     
     // Self modules
@@ -49,9 +53,11 @@ import { AdminDashBoardComponent } from './shared/admin-dashboard/admin-dashboar
     MdInputModule,
     MdButtonModule,
     MdDialogModule,
+    MdCheckboxModule,
+    MdGridListModule,
     MdSnackBarModule,
   ],
   entryComponents: [ AddUserFormComponent ],
-  providers: [ AdminService, AdminUsersService ],
+  providers: [ AdminService, AdminUsersService, SourcesService ],
 })
 export class AdminModule {};
