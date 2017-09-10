@@ -3,6 +3,8 @@ const notifier = require('node-notifier');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+mongoose.Promise = global.Promise;
+
 // Init express application
 const app = new (require('express'))();
 
@@ -22,6 +24,7 @@ mongoose.connection.once('open', () => console.log('Подключено к mong
 // Init routes
 app.get('/', (req, res) => res.send('Hello world!'));
 app.use('/api/user', require('./src/backend/api/user/user.route'));
+app.use('/api/admin', require('./src/backend/api/admin/admin.route'));
 app.use('/api/statistic', require('./src/backend/api/statistic/statistic.route'));
 
 // Init server

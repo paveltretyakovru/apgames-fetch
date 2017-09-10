@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+import { AdminState } from './admin-state.model';
 import { StoreActionModel as Action } from 'app/shared/models/store-action.model';
 
 @Injectable()
@@ -26,6 +27,14 @@ export class AdminActions {
     return {
       type: AdminActions.SET_SOURCES,
       payload: value,
+    }
+  }
+
+  static FETCH_STATE = 'FETCH_STATE';
+  fetchState(data: AdminState): Action {
+    return {
+      type: AdminActions.FETCH_STATE,
+      payload: data,
     }
   }
 

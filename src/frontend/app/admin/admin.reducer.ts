@@ -25,6 +25,10 @@ export const adminReducer = (
       return { ...state, users: action.payload } 
     }
 
+    case AdminActions.FETCH_STATE: {
+      return { ...action.payload };
+    }
+
     default: {
       return { ...state };
     }

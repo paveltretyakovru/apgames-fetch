@@ -10,6 +10,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const serverHost = 'http://localhost:3002';
 
 export const apiRoutes: any = {
+  // Admin
+  loadAdminState: `${serverHost}/api/admin/`,
 
   // Users
   login: `${serverHost}/api/user/login`,
