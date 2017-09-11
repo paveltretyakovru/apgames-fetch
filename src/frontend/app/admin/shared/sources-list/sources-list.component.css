@@ -1,0 +1,11 @@
+.sources-list__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sources-list__item .mat-slide-toggle {
+  height: auto;
+}

@@ -13,6 +13,7 @@ import {
   MdGridListModule,
   MdSnackBarModule,
   MdCheckboxModule,
+  MdSlideToggleModule,
 } from "@angular/material";
 
 import { AdminRoutingModule } from './admin-routing.module';
@@ -56,6 +57,7 @@ import { AdminDashBoardComponent } from './shared/admin-dashboard/admin-dashboar
     MdCheckboxModule,
     MdGridListModule,
     MdSnackBarModule,
+    MdSlideToggleModule,
   ],
   entryComponents: [ AddUserFormComponent ],
   providers: [ AdminService, AdminUsersService, SourcesService ],

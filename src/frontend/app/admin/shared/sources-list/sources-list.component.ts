@@ -5,26 +5,21 @@ import { Source } from './source.model';
 
 @Component({
   selector: 'sources-list',
+  styleUrls: ['./sources-list.component.css'],
   templateUrl: './sources-list.component.html',
 })
 export class SourcesListComponent implements OnInit {
-  sources: Source[] = [];
   @Input() sources$: Observable<Source[]>;
-
-  constructor() { }
+  sources: Source[] = [];
 
   ngOnInit() {
     this.sources$.subscribe(s => {
       this.sources = s;
-      this.sources.forEach(el => el.disabled = false);
+      this.sources.forEach(el => el.checked = false);
     });
   }
 
-  selectChangeHandle(event: any) {
-    console.log('change handle', event);
-  }
-
-  handlerSelectChange(event: any) {
-    console.log('focus', event);
+  changeItem(source:Source) {
+    source.checked = !source.checked;
   }
 };

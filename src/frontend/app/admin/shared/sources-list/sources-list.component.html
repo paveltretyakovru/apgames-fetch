@@ -1,13 +1,14 @@
-<div>
-  <md-selection-list>
-    <md-list-option
-      class="list-item"
-      [value]="source.id"
-      [disabled]="source.selected"
-      (selectChange)="selectedItem($event)"
-      (deselected)="deselectedItem($event)"
-      *ngFor="let source of sources">
-      <h4>{{source.name}}</h4>
-    </md-list-option>
-  </md-selection-list>
-</div>
+<md-list class="sources-list">
+  <div *ngFor="let source of sources">
+    <md-list-item>
+      <div class="sources-list__item">
+        <div>{{ source.name }}</div>
+        <md-slide-toggle
+          [checked]="source.selected"
+          (change)="changeItem(source)">
+        </md-slide-toggle>
+      </div>
+    </md-list-item>
+    <md-divider></md-divider>
+  </div>
+</md-list>
