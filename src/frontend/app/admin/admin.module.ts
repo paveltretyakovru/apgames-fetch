@@ -24,7 +24,7 @@ import { AdminUsersService } from './admin-users/admin-users.service';
 
 import { AdminComponent } from './admin.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
-import { SourcesListComponent } from './shared/filters/sources/sources-list/sources-list.component';
+import { SourcesListComponent } from './shared/filters/sources/shared/components/sources-list/sources-list.component';
 import { AdminHomeModule } from "./admin-home/admin-home.module";
 
 @NgModule({
