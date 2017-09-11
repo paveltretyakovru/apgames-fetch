@@ -18,25 +18,20 @@ import {
 
 import { AdminRoutingModule } from './admin-routing.module';
 
-import { AdminService } from './shared/admin.service';
-import { SourcesService } from './shared/sources-list/sources.service';
+import { AdminService } from './admin.service';
+import { SourcesService } from './shared/filters/sources/sources.service';
 import { AdminUsersService } from './admin-users/admin-users.service';
 
 import { AdminComponent } from './admin.component';
-import { UsersListComponent } from './shared/users-list/users-list.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
-import { SourcesListComponent } from './shared/sources-list/sources-list.component';
-import { AddUserFormComponent } from './shared/add-user-form/add-user-form.component';
-import { AdminDashBoardComponent } from './shared/admin-dashboard/admin-dashboard.component';
+import { SourcesListComponent } from './shared/filters/sources/sources-list/sources-list.component';
+import { AdminHomeModule } from "./admin-home/admin-home.module";
 
 @NgModule({
   declarations: [
     AdminComponent,
-    UsersListComponent,
     AdminUsersComponent,
     SourcesListComponent,
-    AddUserFormComponent,
-    AdminDashBoardComponent,
   ],
   imports: [
     // Andular modules
@@ -45,6 +40,7 @@ import { AdminDashBoardComponent } from './shared/admin-dashboard/admin-dashboar
     ReactiveFormsModule,
     
     // Self modules
+    AdminHomeModule,
     AdminRoutingModule,
 
     // Material modules
@@ -59,7 +55,7 @@ import { AdminDashBoardComponent } from './shared/admin-dashboard/admin-dashboar
     MdSnackBarModule,
     MdSlideToggleModule,
   ],
-  entryComponents: [ AddUserFormComponent ],
+  exports: [ ],
   providers: [ AdminService, AdminUsersService, SourcesService ],
 })
 export class AdminModule {};

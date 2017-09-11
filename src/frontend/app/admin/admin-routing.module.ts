@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
-import { AdminDashBoardComponent } from './shared/admin-dashboard/admin-dashboard.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const adminRoutes: Routes = [
   {
@@ -13,7 +13,12 @@ const adminRoutes: Routes = [
     children: [
       {
         path: '',
-        component: AdminDashBoardComponent,
+        pathMatch: 'full',
+        redirectTo: 'home',
+      },
+      {
+        path: 'home',
+        component: AdminHomeComponent,
       },
       {
         path: 'users/:id',

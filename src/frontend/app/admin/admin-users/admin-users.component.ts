@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
-import { Source } from '../shared/sources-list/source.model';
+import { Source } from '../shared/filters/sources/source.model';
 import { AdminUser } from './admin-user.model';
 
-import { AdminService } from '../shared/admin.service';
-import { SourcesService } from '../shared/sources-list/sources.service';
+import { AdminService } from '../admin.service';
+import { SourcesService } from '../shared/filters/sources/sources.service';
 import { AdminUsersService } from './admin-users.service';
 
 @Component({

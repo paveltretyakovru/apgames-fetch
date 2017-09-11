@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { apiRoutes } from 'app/app-routing.module';
-import { AdminActions } from '../admin.actions';
+import { AdminActions } from './admin.actions';
 import { PluginsService } from 'app/shared/plugins.service';
 
 import { AppState } from 'app/app-state.model';
-import { AdminState } from '../admin-state.model';
+import { AdminState } from './admin-state.model';
 
 @Injectable()
 export class AdminService {

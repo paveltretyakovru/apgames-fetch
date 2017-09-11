@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs/Observable';
 import { Input, Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { Source } from './source.model';
+import { Source } from '../source.model';
 
 @Component({
   selector: 'sources-list',

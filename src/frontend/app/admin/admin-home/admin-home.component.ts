@@ -5,16 +5,16 @@ import { Input, Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 
 import { NewUser } from 'app/shared/models/new-user.model';
-import { AdminUser } from '../../admin-users/admin-user.model';
-import { AdminState } from '../../admin-state.model';
-import { AdminUsersService } from '../../admin-users/admin-users.service';
-import { AddUserFormComponent } from '../add-user-form/add-user-form.component';
+import { AdminUser } from '../admin-users/admin-user.model';
+import { AdminState } from '../admin-state.model';
+import { AdminUsersService } from '../admin-users/admin-users.service';
+import { AddUserFormComponent } from './shared/components/add-user-form/add-user-form.component';
 
 @Component({
-  templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css'],
+  templateUrl: './admin-home.component.html',
+  styleUrls: ['./admin-home.component.css'],
 })
-export class AdminDashBoardComponent implements OnInit {
+export class AdminHomeComponent implements OnInit {
   newUser: NewUser = { login: '', password: '' };
 
   constructor(

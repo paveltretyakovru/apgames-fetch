@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Source } from './source.model';
 import { AppState } from 'app/app-state.model';
 
-import { AdminActions } from '../../admin.actions';
+import { AdminActions } from 'app/admin/admin.actions';
 import { PluginsService } from 'app/shared//plugins.service';
 
 import { apiRoutes } from 'app/app-routing.module';

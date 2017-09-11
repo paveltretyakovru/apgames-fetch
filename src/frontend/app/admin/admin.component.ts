@@ -2,7 +2,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 
-import { AdminService } from './shared/admin.service';
+import { AdminService } from './admin.service';
 import { AdminUsersService } from './admin-users/admin-users.service';
 
 @Component({
