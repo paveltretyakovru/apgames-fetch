@@ -13,7 +13,11 @@
     </md-card-header>
     <md-card-content>
 
-    <sources-list [sources$]="sources$"></sources-list>
+    <sources-list
+      [sources$]="sources$"
+      (sourceUpdated)="handleUpdateSource($event)"
+      [enabledSources]="userSources">
+    </sources-list>
       
     </md-card-content>
   </md-card>

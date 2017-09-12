@@ -1,4 +1,5 @@
 export interface AdminUser {
   id: any,
-  login: string;
+  login: string,
+  sources: Number[],
 }

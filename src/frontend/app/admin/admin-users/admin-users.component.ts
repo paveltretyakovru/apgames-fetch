@@ -18,6 +18,9 @@ import { AdminUsersService } from './admin-users.service';
 export class AdminUsersComponent implements OnInit {
   user$: Observable<AdminUser>;
   sources$: Observable<Source[]>;
+  
+  userId: string;
+  userSources: Number[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +30,18 @@ export class AdminUsersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.user$ = this.usersService.getUser(this.route.snapshot.paramMap.get('id'));
+    this.userId = this.route.snapshot.paramMap.get('id');
+
+    this.user$ = this.usersService.getUser(this.userId);
     this.sources$ = this.sources.getSources();
+
+    this.user$.subscribe(user => {
+        this.userSources = (user && user.sources) ? user.sources : [];
+    });
+  }
+
+  handleUpdateSource(sources: Number[]): void {
+    console.log('Handle updated', sources);
+    this.usersService.updateUserSources({ sources, userId: this.userId });
   }
 };

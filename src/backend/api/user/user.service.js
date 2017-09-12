@@ -16,6 +16,7 @@ class UserService {
           collection.push({
             id: user._id,
             login: user.login,
+            sources: user.sources,
           });
         }
 

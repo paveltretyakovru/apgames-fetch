@@ -4,8 +4,8 @@
       <div class="sources-list__item">
         <div>{{ source.name }}</div>
         <md-slide-toggle
-          [checked]="source.selected"
-          (change)="changeItem(source)">
+          [checked]="enabledSources.indexOf(source.id) !== -1"
+          (change)="changeItem($event, source)">
         </md-slide-toggle>
       </div>
     </md-list-item>

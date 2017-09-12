@@ -40,4 +40,12 @@ export class SourcesService {
 
     return req;
   }
+
+  addUserSource() {
+
+  }
+
+  removeUserSource() {
+    
+  }
 }

@@ -13,6 +13,7 @@ const UserSchema = mongoose.Schema({
       return this.hashed_password;
     },
   },
+  sources: [Number],
 });
 
 UserSchema.methods.encryptPassword = function (password) {

@@ -76,8 +76,29 @@ export class AdminUsersService {
 
     return req;
   }
+
+  updateUserSources(value: {sources: Number[], userId: string}) {
+    
+    this.http.post(apiRoutes.updateUserSources, value)
+      .subscribe(
+        response => {
+          this.store.dispatch({
+            type: AdminActions.UPDATE_USER_SOURCES,
+            payload: response['user'],
+          });
+
+          this.plugins.showSnackBar('Saved');
+          this.plugins.hideProgress();
+        },
+
+        error => {
+          this.plugins.showSnackBar('Save error');
+          this.plugins.hideProgress();
+        }
+      );
+  }
   
-  routeToUser(id: Number | string) {
+  routeToUser(id: Number | string): void {
     this.router.navigate([`/user/admin/users/${id}`]);
   }
 }

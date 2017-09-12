@@ -9,7 +9,11 @@ import { Source } from '../../../source.model';
   templateUrl: './sources-list.component.html',
 })
 export class SourcesListComponent implements OnInit {
+  @Output() sourceUpdated = new EventEmitter();
+
   @Input() sources$: Observable<Source[]>;
+  @Input() enabledSources: Number[] = [];
+
   sources: Source[] = [];
 
   ngOnInit() {
@@ -19,7 +23,19 @@ export class SourcesListComponent implements OnInit {
     });
   }
 
-  changeItem(source:Source) {
-    source.checked = !source.checked;
+  changeItem(event: any, source: Source) {
+    this.sourceUpdated.emit((() => {
+      let copy = [...this.enabledSources];
+      let index = copy.indexOf(+source.id);
+      let have: Boolean = index !== -1;
+
+      if (have) {
+        if(!event.checked) copy.splice(index, 1);
+      } else if (!have) {
+        if(event.checked) copy.push(+source.id);
+      }
+
+      return copy;
+    })());
   }
 };

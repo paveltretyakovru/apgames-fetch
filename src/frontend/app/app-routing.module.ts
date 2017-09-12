@@ -17,9 +17,10 @@ export const apiRoutes: any = {
   login: `${serverHost}/api/user/login`,
   addUser: `${serverHost}/api/user/add`,
   loadUsers: `${serverHost}/api/user/list`,
+  updateUserSources: `${serverHost}/api/user/sources`, // post
 
   // Sources
-  loadSources: `${serverHost}/api/sources`,
+  loadSources: `${serverHost}/api/sources`, // get
 };
 
 const appRoutes: Routes = [

@@ -38,4 +38,11 @@ export class AdminActions {
     }
   }
 
+  static UPDATE_USER_SOURCES = 'UPDATE_USER_SOURCES';
+  updateUserSources(sources: Number[]): Action {
+    return {
+      type: AdminActions.UPDATE_USER_SOURCES,
+      payload: sources,
+    }
+  }
 }
