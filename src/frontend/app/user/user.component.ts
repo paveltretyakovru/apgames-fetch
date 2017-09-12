@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 export const navRoutes: any[] = [
   { path: 'profile', label: 'Profile', isActive: false },
   { path: 'statistic', label: 'Statistic', isActive: true },
-  { path: 'admin', label: 'Admin', isActive: false },
+  { path: 'admin/home', label: 'Admin', isActive: false },
 ];
 
 @Component({
