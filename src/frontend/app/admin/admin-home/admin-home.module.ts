@@ -6,6 +6,7 @@ import {
   MdIconModule,
   MdCardModule,
   MdListModule,
+  MdInputModule,
   MdButtonModule,
 } from "@angular/material";
 
@@ -23,6 +24,7 @@ import { AddUserFormComponent } from "./shared/components/add-user-form/add-user
     MdIconModule,
     MdCardModule,
     MdListModule,
+    MdInputModule,
     MdButtonModule,
   ],
   exports: [],
