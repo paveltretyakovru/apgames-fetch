@@ -12,10 +12,10 @@ export class UserService {
   ) {}
 
   routeToProfile() {
-    this.router.navigate(['/user/statistic']);
+    this.router.navigate(['/user/profile']);
   }
 
   routeToHome() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 }

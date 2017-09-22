@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { apiRoutes } from 'app/app-routing.module';
+import { apiRoutes } from 'app/shared/api-routes';
 import { AdminActions } from './admin.actions';
 import { PluginsService } from 'app/shared/plugins.service';
 

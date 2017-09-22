@@ -7,17 +7,17 @@ import { HttpClient } from '@angular/common/http';
 // Material components
 import {MdSnackBar} from '@angular/material';
 
+import { apiRoutes } from './api-routes';
 import { AppState } from 'app/app-state.model';
 import { AuthData } from 'app/shared/models/auth-data.model';
-import { apiRoutes } from 'app//app-routing.module';
 import { AppActions } from 'app/app.actions';
 import { UserActions } from 'app/user/user.actions';
 
 @Injectable()
 export class AuthService {
-  constructor(
-    public snackBar: MdSnackBar,
+  public snackBar: MdSnackBar;
 
+  constructor(
     private http: HttpClient,
     private store: Store<AppState>,
     private router: Router,
@@ -27,12 +27,11 @@ export class AuthService {
     this.store.dispatch({ type: UserActions.SET_USER_AUTH, payload: value });
   }
 
-  login(options: {authData: AuthData})
-    : any {
+  login(options: {credentials: AuthData}): any {
       this.store.dispatch({ type: AppActions.SET_APP_PROGRESS, payload: true });
 
-      return this.http.post(apiRoutes.login, options.authData).subscribe(
-        
+      return this.http.post(apiRoutes, options.credentials).subscribe(
+
         // Login is success
         (response: any) => {
           console.log('Login result => ', response);

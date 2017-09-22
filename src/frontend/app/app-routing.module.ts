@@ -7,26 +7,14 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './shared/auth-guard.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-const serverHost = 'http://localhost:3002';
-
-export const apiRoutes: any = {
-  // Admin
-  loadAdminState: `${serverHost}/api/admin/`,
-
-  // Users
-  login: `${serverHost}/api/user/login`,
-  addUser: `${serverHost}/api/user/add`,
-  loadUsers: `${serverHost}/api/user/list`,
-  updateUserSources: `${serverHost}/api/user/sources`, // post
-
-  // Sources
-  loadSources: `${serverHost}/api/sources`, // get
-};
-
 const appRoutes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: 'user',
@@ -34,11 +22,12 @@ const appRoutes: Routes = [
     loadChildren: './user/user.module#UserModule',
   },
   {
-    path: 'login',
-    component: LoginComponent,
+    path: 'admin',
+    canLoad: [ AuthGuardService ],
+    loadChildren: 'app/admin/admin.module#AdminModule',
   },
 
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   // 404
   { path: '**', component: NotFoundComponent }

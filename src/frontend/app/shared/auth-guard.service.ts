@@ -7,7 +7,6 @@ import { Router, CanActivateChild, ActivatedRouteSnapshot, CanLoad } from '@angu
 
 import { User } from 'app/user/user.model';
 import { AppState } from 'app/app-state.model';
-import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivateChild, CanLoad {
@@ -18,7 +17,6 @@ export class AuthGuardService implements CanActivateChild, CanLoad {
   constructor(
     private store: Store<AppState>,
     private router: Router,
-    private authService: AuthService
   ) {
 
     // Fetching user state from store

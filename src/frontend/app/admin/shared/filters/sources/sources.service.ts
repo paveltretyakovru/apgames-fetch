@@ -9,7 +9,7 @@ import { AppState } from 'app/app-state.model';
 import { AdminActions } from 'app/admin/admin.actions';
 import { PluginsService } from 'app/shared//plugins.service';
 
-import { apiRoutes } from 'app/app-routing.module';
+import { apiRoutes } from 'app/shared/api-routes';
 
 @Injectable()
 export class SourcesService {

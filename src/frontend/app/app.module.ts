@@ -3,6 +3,7 @@ import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Material imports
 import {
@@ -37,6 +38,10 @@ import { AuthService } from './shared/auth.service';
 import { PluginsService } from './shared/plugins.service';
 import { AuthGuardService } from './shared/auth-guard.service';
 
+// Actions
+import { AppActions } from './app.actions';
+import { UserActions } from 'app/user/user.actions';
+
 @NgModule({
   exports: [
     FormsModule,
@@ -53,7 +58,8 @@ import { AuthGuardService } from './shared/auth-guard.service';
     FormsModule,
     BrowserModule,
     ReactiveFormsModule,
-    
+    HttpClientModule,
+
     // Self modules
     UserModule,
     TasksModule,
@@ -64,7 +70,7 @@ import { AuthGuardService } from './shared/auth-guard.service';
       metaReducers,
       initialState: storeInitState,
     }),
-    
+
     // Material modules
     MdCardModule,
     MdTabsModule,
@@ -88,9 +94,11 @@ import { AuthGuardService } from './shared/auth-guard.service';
   bootstrap: [ AppComponent ],
 
   providers: [
-    AuthService,
+    AppActions,
+    UserActions,
     PluginsService,
     AuthGuardService,
+    AuthService,
   ],
 })
 export class AppModule { }

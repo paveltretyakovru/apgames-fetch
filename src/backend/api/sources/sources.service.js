@@ -19,7 +19,7 @@ class SourcesService {
     return new Promise((resolve, reject) => {
       request(SourcesService.apiRoutes.allSources, (err, response, body) => {
         if(err) reject(err);
-        else resolve(JSON.parse(body).result.sources); 
+        else resolve(JSON.parse(body).result.sources);
       });
     });
   }

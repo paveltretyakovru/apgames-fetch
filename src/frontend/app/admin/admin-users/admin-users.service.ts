@@ -16,7 +16,7 @@ import { AdminUser } from './admin-user.model';
 // Actions
 import { AdminActions } from 'app/admin/admin.actions';
 
-import { apiRoutes } from 'app/app-routing.module';
+import { apiRoutes } from 'app/shared/api-routes';
 import { PluginsService } from 'app/shared/plugins.service';
 
 
@@ -99,6 +99,6 @@ export class AdminUsersService {
   }
   
   routeToUser(id: Number | string): void {
-    this.router.navigate([`/user/admin/users/${id}`]);
+    this.router.navigate([`admin/users/${id}`]);
   }
 }

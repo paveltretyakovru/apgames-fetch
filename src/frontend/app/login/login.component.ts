@@ -1,6 +1,5 @@
-import { Store } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 import { AuthData } from 'app/shared/models/auth-data.model';
@@ -11,10 +10,10 @@ import { AuthService } from 'app/shared/auth.service';
   templateUrl: 'login.component.html',
 })
 export class LoginComponent implements OnInit {
+  public loginForm: FormGroup;
   authData: AuthData = { login: '', password: '' };
-  loginForm: FormGroup;
 
-  constructor(private authService: AuthService) {}
+  constructor (private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -31,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): any {
     this.authService.login({
-      authData: this.authData,
+      credentials: this.authData,
     }).subscribe((result: boolean) => {
       console.info('Obser completed', result);
     });

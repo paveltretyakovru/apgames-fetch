@@ -8,14 +8,20 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const adminRoutes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
     children: [
       {
         path: '',
-        pathMatch: 'full',
+        // pathMatch: 'full',
+        
         redirectTo: 'home',
       },
+      // {
+      //   path: 'admin',
+      //   pathMatch: 'full',
+      //   redirectTo: 'home',
+      // },
       {
         path: 'home',
         component: AdminHomeComponent,
